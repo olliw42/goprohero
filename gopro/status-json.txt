@@ -1,0 +1,598 @@
+{
+    "STATUSSETTING_VIDEO_SUBMODE": {
+        "name": "Video SubMode",
+        "options": {
+            "Video": 0,
+            "TimeLapse": 1,
+            "Video+Photo": 2,
+            "Looping": 3
+        },
+        "nr": 68
+    },
+    "STATUSSETTING_VIDEO_RESOLUTION": {
+        "name": "Video Resolution",
+        "options": {
+            "4K SuperView": 2,
+            "4K": 1,
+            "2.7K SuperView": 5,
+            "2.7K": 4,
+            "1440": 7,
+            "1080 SuperView": 8,
+            "1080": 9,
+            "960": 10,
+            "720 SuperView": 11,
+            "720": 12,
+            "WVGA": 13
+        },
+        "nr": 2
+    },
+    "STATUSSETTING_VIDEO_FRAME_RATE": {
+        "name": "Video Frame Rate",
+        "options": {
+            "240": 0,
+            "120": 1,
+            "100": 2,
+            "90": 3,
+            "80": 4,
+            "60": 5,
+            "50": 6,
+            "48": 7,
+            "30": 8,
+            "25": 9,
+            "24": 10,
+            "15": 11,
+            "12.5": 12
+        },
+        "nr": 3
+    },
+    "STATUSSETTING_VIDEO_FOV": {
+        "name": "Video FOV",
+        "options": {
+            "Wide": 0,
+            "Medium": 1,
+            "Narrow": 2,
+            "Linear": 4
+        },
+        "nr": 4
+    },
+    "STATUSSETTING_VIDEO_TIMELAPSE_INTERVAL": {
+        "name": "Video TimeLapse Interval",
+        "options": {
+            "1/2 Seconds": 0,
+            "1 Second": 1,
+            "2 Seconds": 2,
+            "5 Seconds": 3,
+            "10 Seconds": 4,
+            "30 Seconds": 5,
+            "60 Seconds": 6
+        },
+        "nr": 5
+    },
+    "STATUSSETTING_VIDEO_LOOPING_INTERVAL": {
+        "name": "Video Looping Interval",
+        "options": {
+            "Max": 0,
+            "5 Minutes": 1,
+            "20 Minutes": 2,
+            "60 Minutes": 3,
+            "120 Minutes": 4
+        },
+        "nr": 6
+    },
+    "STATUSSETTING_VIDEO_PHOTO+VIDEO_INTERVAL": {
+        "name": "Video Photo+Video Interval",
+        "options": {
+            "1 Photo / 5 Seconds": 1,
+            "1 Photo / 10 Seconds": 2,
+            "1 Photo / 30 Seconds": 3,
+            "1 Photo / 60 Seconds": 4
+        },
+        "nr": 7
+    },
+    "STATUSSETTING_VIDEO_LOW_LIGHT": {
+        "name": "Video Low Light",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 8
+    },
+    "STATUSSETTING_VIDEO_SPOT_METER": {
+        "name": "Video Spot Meter",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 9
+    },
+    "STATUSSETTING_VIDEO_PROTUNE": {
+        "name": "Video Protune",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 10
+    },
+    "STATUSSETTING_VIDEO_WHITE_BALANCE": {
+        "name": "Video White Balance",
+        "options": {
+            "Auto": 0,
+            "3000K": 1,
+            "4000K": 5,
+            "4800K": 6,
+            "5500K": 2,
+            "6000K": 7,
+            "6500K": 3,
+            "Native": 4
+        },
+        "nr": 11
+    },
+    "STATUSSETTING_VIDEO_COLOR": {
+        "name": "Video Color",
+        "options": {
+            "GoPro Color": 0,
+            "Flat": 1
+        },
+        "nr": 12
+    },
+    "STATUSSETTING_VIDEO_EXPOSURE": {
+        "name": "Video Exposure",
+        "options": {
+            "1/24": 3,
+            "1/25": 4,
+            "1/30": 5,
+            "1/48": 6,
+            "1/50": 7,
+            "1/60": 8,
+            "1/80": 9,
+            "1/90": 10,
+            "1/96": 11,
+            "1/100": 12,
+            "1/120": 13,
+            "1/160": 14,
+            "1/180": 15,
+            "1/192": 16,
+            "1/200": 17,
+            "1/240": 18,
+            "1/320": 19,
+            "1/360": 20,
+            "1/400": 21,
+            "1/480": 22,
+            "1/960": 23
+        },
+        "nr": 73
+    },
+    "STATUSSETTING_VIDEO_ISO_MODE": {
+        "name": "Video ISO Mode",
+        "options": {
+            "Max": 0,
+            "Lock": 1
+        },
+        "nr": 74
+    },
+    "STATUSSETTING_VIDEO_ISO_LIMIT": {
+        "name": "Video ISO Limit",
+        "options": {
+            "6400": 0,
+            "1600": 1,
+            "400": 2,
+            "3200": 3,
+            "800": 4,
+            "200": 7,
+            "100": 8
+        },
+        "nr": 13
+    },
+    "STATUSSETTING_VIDEO_SHARPNESS": {
+        "name": "Video Sharpness",
+        "options": {
+            "High": 0,
+            "Medium": 1,
+            "Low": 2
+        },
+        "nr": 14
+    },
+    "STATUSSETTING_VIDEO_EV_COMP": {
+        "name": "Video EV Comp",
+        "options": {
+            "-2.0": 8,
+            "-1.5": 7,
+            "-1.0": 6,
+            "-0.5": 5,
+            "0.0": 4,
+            "0.5": 3,
+            "1.0": 2,
+            "1.5": 1,
+            "2.0": 0
+        },
+        "nr": 15
+    },
+    "STATUSSETTING_PHOTO_SUBMODE": {
+        "name": "Photo SubMode",
+        "options": {
+            "Single": 0,
+            "Continuous": 1,
+            "Night": 2
+        },
+        "nr": 69
+    },
+    "STATUSSETTING_PHOTO_CONTINUOUS_RATE": {
+        "name": "Photo Continuous Rate",
+        "options": {
+            "3 Frames / Second": 0,
+            "5 Frames / Second": 1,
+            "10 Frames / Second": 2
+        },
+        "nr": 18
+    },
+    "STATUSSETTING_PHOTO_MEGAPIXELS": {
+        "name": "Photo Megapixels",
+        "options": {
+            "12MP Wide": 0,
+            "7MP Wide": 1,
+            "7MP Med": 2,
+            "5MP Med": 3
+        },
+        "nr": 17
+    },
+    "STATUSSETTING_PHOTO_SHUTTER": {
+        "name": "Photo Shutter",
+        "options": {
+            "Auto": 0,
+            "2 Seconds": 1,
+            "5 Seconds": 2,
+            "10 Seconds": 3,
+            "15 Seconds": 4,
+            "20 Seconds": 5,
+            "30 Seconds": 6
+        },
+        "nr": 19
+    },
+    "STATUSSETTING_PHOTO_SPOT_METER": {
+        "name": "Photo Spot Meter",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 20
+    },
+    "STATUSSETTING_PHOTO_PROTUNE": {
+        "name": "Photo Protune",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 21
+    },
+    "STATUSSETTING_PHOTO_WHITE_BALANCE": {
+        "name": "Photo White Balance",
+        "options": {
+            "Auto": 0,
+            "3000K": 1,
+            "4000K": 5,
+            "4800K": 6,
+            "5500K": 2,
+            "6000K": 7,
+            "6500K": 3,
+            "Native": 4
+        },
+        "nr": 22
+    },
+    "STATUSSETTING_PHOTO_COLOR": {
+        "name": "Photo Color",
+        "options": {
+            "GoPro": 0,
+            "Flat": 1
+        },
+        "nr": 23
+    },
+    "STATUSSETTING_PHOTO_SHARPNESS": {
+        "name": "Photo Sharpness",
+        "options": {
+            "High": 0,
+            "Medium": 1,
+            "Low": 2
+        },
+        "nr": 25
+    },
+    "STATUSSETTING_PHOTO_EV_COMP": {
+        "name": "Photo EV Comp",
+        "options": {
+            "-2.0": 8,
+            "-1.5": 7,
+            "-1.0": 6,
+            "-0.5": 5,
+            "0.0": 4,
+            "0.5": 3,
+            "1.0": 2,
+            "1.5": 1,
+            "2.0": 0
+        },
+        "nr": 26
+    },
+    "STATUSSETTING_PHOTO_ISO_MIN": {
+        "name": "Photo ISO Min",
+        "options": {
+            "800": 0,
+            "400": 1,
+            "200": 2,
+            "100": 3
+        },
+        "nr": 75
+    },
+    "STATUSSETTING_PHOTO_ISO_LIMIT": {
+        "name": "Photo ISO Limit",
+        "options": {
+            "800": 0,
+            "400": 1,
+            "200": 2,
+            "100": 3
+        },
+        "nr": 24
+    },
+    "STATUSSETTING_MULTISHOT_DEFAULT_SUB_MODE": {
+        "name": "Multishot Default Sub Mode",
+        "options": {
+            "Burst": 0,
+            "Time Lapse": 1,
+            "Night Lapse": 2
+        },
+        "nr": 27
+    },
+    "STATUSSETTING_MULTISHOT_SUB_MODE": {
+        "name": "Multishot Sub Mode",
+        "options": {
+            "Burst": 0,
+            "Time Lapse": 1,
+            "Night Lapse": 2,
+            "Auto": 0,
+            "2 Seconds": 1,
+            "5 Seconds": 2,
+            "10 Seconds": 3,
+            "15 Seconds": 4,
+            "20 Seconds": 5,
+            "30 Seconds": 6
+        },
+        "nr": 70
+    },
+    "STATUSSETTING_MULTISHOT_BURST_RATE": {
+        "name": "Multishot Burst Rate",
+        "options": {
+            "3 Photos / 1 Second": 0,
+            "5 Photos / 1 Second": 1,
+            "10 Photos / 1 Second": 2,
+            "10 Photos / 2 Seconds": 3,
+            "10 Photos / 3 Seconds": 4,
+            "30 Photos / 1 Second": 5,
+            "30 Photos / 2 Seconds": 6,
+            "30 Photos / 3 Seconds": 7,
+            "30 Photos / 6 Seconds": 8
+        },
+        "nr": 29
+    },
+    "STATUSSETTING_MULTISHOT_TIMELAPSE_INTERVAL": {
+        "name": "Multishot TimeLapse Interval",
+        "options": {
+            "1 Photo / 0.5 Sec": 0,
+            "1 Photo / 1 Sec": 1,
+            "1 Photo / 2 Sec": 2,
+            "1 Photo / 5 Sec": 5,
+            "1 Photo / 10 Sec": 10,
+            "1 Photo / 30 Sec": 30,
+            "1 Photo / 60 Sec": 60
+        },
+        "nr": 30
+    },
+    "STATUSSETTING_MULTISHOT_NIGHTLAPSE_INTERVAL": {
+        "name": "Multishot NightLapse Interval",
+        "options": {
+            "Continuous": 0,
+            "4 Seconds": 4,
+            "5 Seconds": 5,
+            "10 Seconds": 10,
+            "15 Seconds": 15,
+            "20 Seconds": 20,
+            "30 Seconds": 30,
+            "1 Minute": 60,
+            "2 Minutes": 120,
+            "5 Minutes": 300,
+            "30 Minutes": 1800,
+            "60 Minutes": 3600
+        },
+        "nr": 32
+    },
+    "STATUSSETTING_MULTISHOT_MEGAPIXELS": {
+        "name": "Multishot Megapixels",
+        "options": {
+            "12MP Wide": 0,
+            "7MP Wide": 1,
+            "7MP Med": 2,
+            "5MP Med": 3
+        },
+        "nr": 28
+    },
+    "STATUSSETTING_MULTISHOT_SPOT_METER": {
+        "name": "Multishot Spot Meter",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 33
+    },
+    "STATUSSETTING_MULTISHOT_PROTUNE": {
+        "name": "Multishot Protune",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 34
+    },
+    "STATUSSETTING_MULTISHOT_WHITE_BALANCE": {
+        "name": "Multishot White Balance",
+        "options": {
+            "Auto": 0,
+            "3000K": 1,
+            "4000K": 5,
+            "4800K": 6,
+            "5500K": 2,
+            "6000K": 7,
+            "6500K": 3,
+            "Native": 4
+        },
+        "nr": 35
+    },
+    "STATUSSETTING_MULTISHOT_COLOR": {
+        "name": "Multishot Color",
+        "options": {
+            "GoPro": 0,
+            "Flat": 1
+        },
+        "nr": 36
+    },
+    "STATUSSETTING_MULTISHOT_SHARPNESS": {
+        "name": "Multishot Sharpness",
+        "options": {
+            "High": 0,
+            "Medium": 1,
+            "Low": 2
+        },
+        "nr": 38
+    },
+    "STATUSSETTING_MULTISHOT_EV_COMP": {
+        "name": "Multishot EV Comp",
+        "options": {
+            "-2.0": 8,
+            "-1.5": 7,
+            "-1.0": 6,
+            "-0.5": 5,
+            "0.0": 4,
+            "0.5": 3,
+            "1.0": 2,
+            "1.5": 1,
+            "2.0": 0
+        },
+        "nr": 39
+    },
+    "STATUSSETTING_MULTISHOT_ISO_MIN": {
+        "name": "Multishot ISO Min",
+        "options": {
+            "800": 0,
+            "400": 1,
+            "200": 2,
+            "100": 3
+        },
+        "nr": 76
+    },
+    "STATUSSETTING_MULTISHOT_ISO_LIMIT": {
+        "name": "Multishot ISO Limit",
+        "options": {
+            "800": 0,
+            "400": 1,
+            "200": 2,
+            "100": 3
+        },
+        "nr": 37
+    },
+    "STATUSSETTING_LCD_DISPLAY": {
+        "name": "LCD Display",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 72
+    },
+    "STATUSSETTING_ORIENTATION": {
+        "name": "Orientation",
+        "options": {
+            "Auto": 0,
+            "UP": 1,
+            "DOWN": 2
+        },
+        "nr": 52
+    },
+    "STATUSSETTING_DEFAULT_BOOT_MODE": {
+        "name": "Default Boot Mode",
+        "options": {
+            "Video": 0,
+            "Photo": 1,
+            "MultiShot": 2
+        },
+        "nr": 53
+    },
+    "STATUSSETTING_QUICK_CAPTURE": {
+        "name": "Quick Capture",
+        "options": {
+            "Off": 0,
+            "On": 1
+        },
+        "nr": 54
+    },
+    "STATUSSETTING_LED_STATUS": {
+        "name": "LED status",
+        "options": {
+            "Off": 0
+        },
+        "nr": 55
+    },
+    "STATUSSETTING_VOLUME_FOR_BEEPS": {
+        "name": "Volume for beeps",
+        "options": {
+            "Mute": 2
+        },
+        "nr": 56
+    },
+    "STATUSSETTING_VIDEO_FORMAT": {
+        "name": "Video Format",
+        "options": {
+            "NTSC": 0,
+            "PAL": 1
+        },
+        "nr": 57
+    },
+    "STATUSSETTING_ON_SCREEN_DATA": {
+        "name": "On Screen data",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 58
+    },
+    "STATUSSETTING_LCD_BRIGHTNESS": {
+        "name": "LCD Brightness",
+        "options": {
+            "High": 0,
+            "Medium": 1,
+            "Low": 2
+        },
+        "nr": 49
+    },
+    "STATUSSETTING_LCD_LOCK": {
+        "name": "LCD Lock",
+        "options": {
+            "On": 1,
+            "Off": 0
+        },
+        "nr": 50
+    },
+    "STATUSSETTING_LCD_TIMEOUT_SLEEP": {
+        "name": "LCD Timeout sleep",
+        "options": {
+            "Never sleep": 0,
+            "1min sleep": 1,
+            "2min sleep": 2,
+            "3min sleep": 3
+        },
+        "nr": 51
+    },
+    "STATUSSETTING_AUTO_POWER_OFF": {
+        "name": "Auto Power Off",
+        "options": {
+            "Never": 0,
+            "1 min": 1,
+            "2 mins": 2,
+            "3 mins": 3,
+            "5 mins": 4
+        },
+        "nr": 59
+    }
+}
