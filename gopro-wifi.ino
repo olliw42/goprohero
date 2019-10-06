@@ -19,7 +19,7 @@
 #define GOPRO_SSID "GP........"      // Wifi name (SSID)videoon;
 #define GOPRO_PASS ".........."      // WiFi password
 
-#define VERSION_STR "(c) olliw.eu, v2019-08-09"
+#define VERSION_STR "(c) olliw.eu, v2019-10-06"
 
 
 //for debugging
@@ -40,6 +40,10 @@ void setup()
   blink_init();
   cli_init();
   Serial.begin(115200);
+#if defined(ARDUINO_ARCH_ESP32)
+  //this is important: see https://forums.adafruit.com/viewtopic.php?f=57&t=153553
+  pinMode(3, INPUT_PULLUP);
+#endif  
 
   gopro.debugPort(&Serial);
   //this in combination with the begin() in loop() works very well !!  
