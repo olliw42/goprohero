@@ -116,7 +116,6 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
 
       //STorM32:
       
-      //not currently used by STorM32
       if( cli_bufiscmd("ping") ) {
           int16_t res = gopro.testConnectionToClient();
           serialPrintClose(res);
