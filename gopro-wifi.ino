@@ -19,7 +19,7 @@
 #define GOPRO_SSID "GP........"      // Wifi name (SSID)videoon;
 #define GOPRO_PASS ".........."      // WiFi password
 
-#define VERSION_STR "(c) olliw.eu, v2019-10-06"
+#define VERSION_STR "(c) olliw.eu, v2019-10-15"
 
 
 //for debugging
@@ -91,11 +91,14 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
 
   gopro.loop();
   
-  while( Serial.available() ){
+  bool done = false; //this is to accept only one command per loop, we also could do it with a break, but it's nicer so
+  
+  while( Serial.available() && (done == false) ){
     char c = cli_getc();
     MAIN_PRINT(Serial.print(c);)
 
     if( cli_isenter(c) ){
+      done = true;
 
       if( cli_bufiscmd("info") )            {gopro.debugOn();gopro.getInfo();gopro.debugRestore();}
       if( cli_bufiscmd("status") )          {gopro.debugOn();gopro.getStatus();gopro.debugRestore();}
@@ -139,7 +142,7 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
             delay(500); //it needs some time otherwise the shutter is missed
           }
           if( res == true ){ 
-            mode_last = GOPRO_CMD_SUBMODE_PHOTO_SINGLE; 
+            mode_last = GOPRO_CMD_SUBMODE_PHOTO_SINGLE;
             res = gopro.cmdShutterOn();
           }  
           //doesn't respond  serialPrintClose(res);
@@ -299,7 +302,6 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
           serialPrintClose(res);
       }
 
-      //not currently used by STorM32
       if( cli_bufiscmd("battery") ) {
           int16_t res = gopro.getStatus();
           if( res == true ) {
