@@ -1,3 +1,4 @@
+//generated 2019-11-02 10:30:33.138812
 
 #define GOPRO_DBG(x)
 
@@ -14,24 +15,123 @@
 // MAVCAMERA PARAMETERS
 //--------------------------------------
 
-#define MAVCAMERA_PARAMETER_ZAHL_GOPROHERO5  $$$GOPRO_PARAMETER_ZAHL$$$
+#define MAVCAMERA_PARAMETER_ZAHL_GOPROHERO5  46
 
 typedef struct {
   uint16_t cam_mode;
-$$$GOPRO_PARAMETERS$$$
+  uint16_t VideoResolution;                   // 2
+  uint16_t VideoFrameRate;                    // 3
+  uint16_t VideoFov;                          // 4
+  uint16_t VideoColor;                        // 12
+  uint16_t VideoWhiteBalance;                 // 11
+  uint16_t VideoIso;                          // 13
+  uint16_t VideoShutter;                      // 73
+  uint16_t VideoEvComp;                       // 15
+  uint16_t VideoSharpness;                    // 14
+  uint16_t VideoRawAudioTrack;                // 81
+  uint16_t VideoProtune;                      // 10
+  uint16_t VideoEis;                          // 78
+  uint16_t VideoAutoLowLight;                 // 8
+  uint16_t VideoManualAudioControl;           // 80
+  uint16_t VideoPhotoInterval;                // 7
+  uint16_t VideoLoopingInterval;              // 6
+  uint16_t PhotoFov;                          // 17
+  uint16_t PhotoColor;                        // 23
+  uint16_t PhotoWhiteBalance;                 // 22
+  uint16_t PhotoIsoMin;                       // 75
+  uint16_t PhotoIsoMax;                       // 24
+  uint16_t PhotoShutter;                      // 97
+  uint16_t PhotoEvComp;                       // 26
+  uint16_t PhotoSharpness;                    // 25
+  uint16_t PhotoProtune;                      // 21
+  uint16_t PhotoWdr;                          // 77
+  uint16_t PhotoRawFormat;                    // 82
+  uint16_t PhotoNightShutter;                 // 19
+  uint16_t PhotoBurstRate;                    // 29
+  uint16_t MultishotTimelapseVideoInterval;   // 5
+  uint16_t MultishotTimelapsePhotoInterval;   // 30
+  uint16_t MultishotNightlapsePhotoInterval;  // 32
+  uint16_t VoiceControl;                      // 86
+  uint16_t VoiceControlLanguage;              // 85
+  uint16_t BeepVolume;                        // 87
+  uint16_t Led;                               // 91
+  uint16_t Quickcapture;                      // 54
+  uint16_t DefaultMode;                       // 89
+  uint16_t AutoOff;                           // 59
+  uint16_t Screensaver;                       // 51
+  uint16_t Brightness;                        // 88
+  uint16_t AutoRotation;                      // 52
+  uint16_t Gps;                               // 83
+  uint16_t Language;                          // 84
+  uint16_t VideoFormat;                       // 57
 } tMavCameraParameters_GoProHero5;
 tMavCameraParameters_GoProHero5 _mavcameraparams_goprohero5;
 
 const tMavCameraSetupParameter MavCameraParameters_GoProHero5[MAVCAMERA_PARAMETER_ZAHL_GOPROHERO5] = {
   { (uint8_t*)&_mavcameraparams_goprohero5.cam_mode, MAV_PARAM_TYPE_UINT8, "CAM_MODE" },
-$$$GOPRO_SETUP_PARAMETERS$$$
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoResolution,                   MAV_PARAM_TYPE_UINT16,  "VID_RESOLUTION" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoFrameRate,                    MAV_PARAM_TYPE_UINT16,  "VID_FRAMERATE" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoFov,                          MAV_PARAM_TYPE_UINT16,  "VID_FOV" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoColor,                        MAV_PARAM_TYPE_UINT16,  "VID_COLOR" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoWhiteBalance,                 MAV_PARAM_TYPE_UINT16,  "VID_WHITEBALAN" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoIso,                          MAV_PARAM_TYPE_UINT16,  "VID_ISO" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoShutter,                      MAV_PARAM_TYPE_UINT16,  "VID_SHUTTER" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoEvComp,                       MAV_PARAM_TYPE_UINT16,  "VID_EVCOMP" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoSharpness,                    MAV_PARAM_TYPE_UINT16,  "VID_SHARPNESS" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoRawAudioTrack,                MAV_PARAM_TYPE_UINT16,  "VID_RAWAUDIOTRAC" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoProtune,                      MAV_PARAM_TYPE_UINT16,  "VID_PROTUNE" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoEis,                          MAV_PARAM_TYPE_UINT16,  "VID_EIS" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoAutoLowLight,                 MAV_PARAM_TYPE_UINT16,  "VID_AUTOLOWLIGHT" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoManualAudioControl,           MAV_PARAM_TYPE_UINT16,  "VID_MANUAAUDIOCO" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoPhotoInterval,                MAV_PARAM_TYPE_UINT16,  "VID_PHOTOINTER" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoLoopingInterval,              MAV_PARAM_TYPE_UINT16,  "VID_LOOPIINTER" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoFov,                          MAV_PARAM_TYPE_UINT16,  "PHO_FOV" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoColor,                        MAV_PARAM_TYPE_UINT16,  "PHO_COLOR" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoWhiteBalance,                 MAV_PARAM_TYPE_UINT16,  "PHO_WHITEBALAN" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoIsoMin,                       MAV_PARAM_TYPE_UINT16,  "PHO_ISOMIN" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoIsoMax,                       MAV_PARAM_TYPE_UINT16,  "PHO_ISOMAX" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoShutter,                      MAV_PARAM_TYPE_UINT16,  "PHO_SHUTTER" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoEvComp,                       MAV_PARAM_TYPE_UINT16,  "PHO_EVCOMP" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoSharpness,                    MAV_PARAM_TYPE_UINT16,  "PHO_SHARPNESS" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoProtune,                      MAV_PARAM_TYPE_UINT16,  "PHO_PROTUNE" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoWdr,                          MAV_PARAM_TYPE_UINT16,  "PHO_WDR" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoRawFormat,                    MAV_PARAM_TYPE_UINT16,  "PHO_RAWFORMA" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoNightShutter,                 MAV_PARAM_TYPE_UINT16,  "PHO_NIGHTSHUTT" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.PhotoBurstRate,                    MAV_PARAM_TYPE_UINT16,  "PHO_BURSTRATE" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.MultishotTimelapseVideoInterval,   MAV_PARAM_TYPE_UINT16,  "MUL_TIMELVIDEOIN" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.MultishotTimelapsePhotoInterval,   MAV_PARAM_TYPE_UINT16,  "MUL_TIMELPHOTOIN" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.MultishotNightlapsePhotoInterval,  MAV_PARAM_TYPE_UINT16,  "MUL_NIGHTPHOTOIN" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VoiceControl,                      MAV_PARAM_TYPE_UINT16,  "VOI_CONTROL" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VoiceControlLanguage,              MAV_PARAM_TYPE_UINT16,  "VOI_CONTRLANGU" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.BeepVolume,                        MAV_PARAM_TYPE_UINT16,  "BEE_VOLUME" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.Led,                               MAV_PARAM_TYPE_UINT16,  "LED" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.Quickcapture,                      MAV_PARAM_TYPE_UINT16,  "QUICKCAPTURE" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.DefaultMode,                       MAV_PARAM_TYPE_UINT16,  "DEF_MODE" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.AutoOff,                           MAV_PARAM_TYPE_UINT16,  "AUT_OFF" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.Screensaver,                       MAV_PARAM_TYPE_UINT16,  "SCREENSAVER" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.Brightness,                        MAV_PARAM_TYPE_UINT16,  "BRIGHTNESS" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.AutoRotation,                      MAV_PARAM_TYPE_UINT16,  "AUT_ROTATION" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.Gps,                               MAV_PARAM_TYPE_UINT16,  "GPS" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.Language,                          MAV_PARAM_TYPE_UINT16,  "LANGUAGE" },
+  { (uint16_t*)&_mavcameraparams_goprohero5.VideoFormat,                       MAV_PARAM_TYPE_UINT16,  "VID_FORMAT" },
 };
 
 void goprohero5_default_parameters(void)
 {
   memset( &_mavcameraparams_goprohero5, 0, sizeof(_mavcameraparams_goprohero5) );
 
-$$$GOPRO_DEFAULTS$$$
+  _mavcameraparams_goprohero5.VideoResolution = 9;
+  _mavcameraparams_goprohero5.VideoFrameRate = 5;
+  _mavcameraparams_goprohero5.VideoIso = 1;
+  _mavcameraparams_goprohero5.VideoEvComp = 4;
+  _mavcameraparams_goprohero5.VideoSharpness = 1;
+  _mavcameraparams_goprohero5.VideoRawAudioTrack = 3;
+  _mavcameraparams_goprohero5.VideoProtune = 1;
+  _mavcameraparams_goprohero5.VideoManualAudioControl = 2;
+  _mavcameraparams_goprohero5.PhotoIsoMin = 3;
+  _mavcameraparams_goprohero5.PhotoIsoMax = 4;
+  _mavcameraparams_goprohero5.PhotoEvComp = 4;
+  _mavcameraparams_goprohero5.PhotoProtune = 1;
 };
 
 
@@ -41,12 +141,16 @@ $$$GOPRO_DEFAULTS$$$
 
 const char* GoProHero5Setting_str[MAVCAMERA_PARAMETER_ZAHL_GOPROHERO5] = {
   "",
-$$$GOPRO_SETTING_STR$$$
+  "2","3","4","12","11","13","73","15","14","81","10","78","8","80","7","6","17","23","22","75",
+  "24","97","26","25","21","77","82","19","29","5","30","32","86","85","87","91","54","89","59","51","88",
+  "52","83","84","57",
 };
 
 const uint16_t GoProHero5Setting_u16[MAVCAMERA_PARAMETER_ZAHL_GOPROHERO5] = {
   UINT16_MAX,
-$$$GOPRO_SETTING_U16$$$
+  2,3,4,12,11,13,73,15,14,81,10,78,8,80,7,6,17,23,22,75,
+  24,97,26,25,21,77,82,19,29,5,30,32,86,85,87,91,54,89,59,51,88,
+  52,83,84,57,
  };
 
 

@@ -36,6 +36,7 @@ status_outputfilename = "status-json.txt"
 resolution_inputfilename = "Framerates-Resolutions - edited.md"
 resolution_outputfilename = "resolution-matrix-json.txt"
 
+
 def cvtsettings():
     F = open(settings_inputfilename, "r")
     md = F.read()

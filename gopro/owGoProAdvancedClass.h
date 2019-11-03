@@ -22,7 +22,7 @@
 /*
   C++ class owGoProAdvancedClass
   
-  generated 2019-07-28 20:25:59.161009
+  generated 2019-11-02 09:38:19.147485
 */
 
 

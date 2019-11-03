@@ -19,7 +19,7 @@
 #define GOPRO_SSID "GP........"      // Wifi name (SSID)videoon;
 #define GOPRO_PASS ".........."      // WiFi password
 
-#define VERSION_STR "(c) olliw.eu, v2019-10-15"
+#define VERSION_STR "(c) olliw.eu, v2019-10-31"
 
 
 //for debugging
@@ -302,6 +302,25 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
           serialPrintClose(res);
       }
 
+      if( cli_bufiscmd("battery2") ) {
+          int16_t res = gopro.getStatus();
+          if( res == true ) {
+            String battery_available, battery_level, battery_percentage;
+            if( !gopro.extractStatusValueFromResponse("1", battery_available) || 
+                !gopro.extractStatusValueFromResponse("2", battery_level) || 
+                !gopro.extractStatusValueFromResponse("70", battery_percentage)) {
+              res = GOPRO_RESULT_UNKNOWN; //unknown setting no //should never happen
+            } else {
+              Serial.print(battery_available);
+              Serial.print(',');
+              Serial.print(battery_level);
+              Serial.print(',');
+              Serial.print(battery_percentage);
+            }
+          }
+          serialPrintClose(res);
+      }
+      
       if( cli_bufiscmd("battery") ) {
           int16_t res = gopro.getStatus();
           if( res == true ) {

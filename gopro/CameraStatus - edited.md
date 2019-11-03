@@ -50,6 +50,8 @@ As you can see, there are two objects, "status" and "settings".
   * 0 = Not recording/Processing
   * 1 = Recording/processing
 * 54 - Remaning free space on memorycard in bytes
+* 57 - This seems to be time since power on in ms
+* 70 - battery level in %
 
 ### Settings object:
 #### Video Mode based parameters:

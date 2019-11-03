@@ -1,5 +1,5 @@
 !copied form KonradIT, and modified such to only inlcude what is considered most relevant
-! I went through all settings, since ther ehad been many erros for teh Hero5
+! I went through all settings, since there had been many erros for the Hero5
 
 ### GoPro HERO5 Black
 ### Firmware Version HD5.02.02.60.00

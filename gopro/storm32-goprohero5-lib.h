@@ -1,4 +1,4 @@
-//generated 2019-07-28 22:25:49.790395
+//generated 2019-11-02 10:14:10.295793
 
 #define GOPRO_DBG(x)
 
@@ -402,6 +402,50 @@ GOPRO_DBG(MAV_PUTS("  gpC:");MAV_PUTS(s);)
   //send string and trigger receive
   gopro_hal_putbuf(_gopro.buf, strlen(s));
   gopro_receive_trigger();
+}
+
+
+void goprohero5_getbattery(void)
+{
+  //compose string
+  char* s = (char*)_gopro.buf;
+  strcpy(s, "battery2\n");
+
+GOPRO_DBG(MAV_PUTS("  gpGb2:");MAV_PUTS(s);)
+
+  //send string and trigger receive
+  gopro_hal_putbuf(_gopro.buf, strlen(s));
+  gopro_receive_trigger();
+}
+
+
+void goprohero5_parse_battery(uint16_t* battery_available, uint16_t* battery_status, uint16_t* battery_percentage, uint8_t* buf, uint16_t buf_len)
+{
+  *battery_available = 0;
+  *battery_status = 0;
+  *battery_percentage = 0;
+/*  uint16_t i = 0;  //this doesn't work for some reason I didn't see, batterystatus is 0, and batterypercentage too large
+  for(; i<buf_len; i++){
+    if( buf[i] == ',' ) break;
+    if( (buf[i] >= '0') && (buf[i] <= '9') ) *battery_available = buf[i] - '0';
+  }
+  for(; i<buf_len; i++){
+    if( buf[i] == ',' ) break;
+    if( (buf[i] >= '0') && (buf[i] <= '9') ) *battery_status = buf[i] - '0';
+  }
+  for(; i<buf_len; i++){
+    if( (buf[i] >= '0') && (buf[i] <= '9') ) *battery_percentage = (*battery_percentage)*10 + (buf[i] - '0');
+  }
+*/
+  uint16_t nr = 0;
+  for( uint16_t i=0; i<buf_len; i++){
+    if( buf[i] == ',' ){ nr++; continue; }
+    if( (buf[i] >= '0') && (buf[i] <= '9') ){
+      if( nr == 0 ) *battery_available = buf[i] - '0';
+      if( nr == 1 ) *battery_status = buf[i] - '0';
+      if( nr == 2 ) *battery_percentage = (*battery_percentage)*10 + (buf[i] - '0');
+    }
+  }
 }
 
 

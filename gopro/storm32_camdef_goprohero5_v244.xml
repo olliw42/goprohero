@@ -174,26 +174,14 @@
                 <option name="High" value="2" />
             </options>
         </parameter>
-        <parameter name="VID_PROTUNE" type="uint32" default="1">
+        <parameter name="VID_PROTUNE" type="bool" default="1">
             <description>ProTune</description>
-            <options>
-                <option name="Off" value="0" />
-                <option name="On" value="1" />
-            </options>
         </parameter>
-        <parameter name="VID_EIS" type="uint32" default="0">
+        <parameter name="VID_EIS" type="bool" default="0">
             <description>EIS</description>
-            <options>
-                <option name="Off" value="0" />
-                <option name="On" value="1" />
-            </options>
         </parameter>
-        <parameter name="VID_AUTOLOWLIGHT" type="uint32" default="0">
+        <parameter name="VID_AUTOLOWLIGHT" type="bool" default="0">
             <description>Auto Low Light</description>
-            <options>
-                <option name="Off" value="0" />
-                <option name="On" value="1" />
-            </options>
         </parameter>
         <parameter name="VID_MANUAAUDIOCO" type="uint32" default="2">
             <description>Manual Audio Control</description>
@@ -304,26 +292,14 @@
                 <option name="Low" value="2" />
             </options>
         </parameter>
-        <parameter name="PHO_PROTUNE" type="uint32" default="1">
+        <parameter name="PHO_PROTUNE" type="bool" default="1">
             <description>ProTune</description>
-            <options>
-                <option name="Off" value="0" />
-                <option name="On" value="1" />
-            </options>
         </parameter>
-        <parameter name="PHO_WDR" type="uint32" default="0">
+        <parameter name="PHO_WDR" type="bool" default="0">
             <description>WDR</description>
-            <options>
-                <option name="On" value="1" />
-                <option name="Off" value="0" />
-            </options>
         </parameter>
-        <parameter name="PHO_RAWFORMA" type="uint32" default="0">
+        <parameter name="PHO_RAWFORMA" type="bool" default="0">
             <description>RAW Format</description>
-            <options>
-                <option name="On" value="1" />
-                <option name="Off" value="0" />
-            </options>
         </parameter>
         <parameter name="PHO_NIGHTSHUTT" type="uint32" default="0">
             <description>Night Shutter</description>
@@ -392,12 +368,8 @@
                 <option name="60 Min" value="3600" />
             </options>
         </parameter>
-        <parameter name="VOI_CONTROL" type="uint32" default="0">
+        <parameter name="VOI_CONTROL" type="bool" default="0">
             <description>Voice Control</description>
-            <options>
-                <option name="On" value="1" />
-                <option name="Off" value="0" />
-            </options>
         </parameter>
         <parameter name="VOI_CONTRLANGU" type="uint32" default="0">
             <description>Voice Control Language</description>
@@ -431,12 +403,8 @@
                 <option name="Front off only" value="1" />
             </options>
         </parameter>
-        <parameter name="QUICKCAPTURE" type="uint32" default="0">
+        <parameter name="QUICKCAPTURE" type="bool" default="0">
             <description>QuickCapture</description>
-            <options>
-                <option name="On" value="1" />
-                <option name="Off" value="0" />
-            </options>
         </parameter>
         <parameter name="DEF_MODE" type="uint32" default="0">
             <description>Default Mode</description>
@@ -487,12 +455,8 @@
                 <option name="Auto" value="0" />
             </options>
         </parameter>
-        <parameter name="GPS" type="uint32" default="0">
+        <parameter name="GPS" type="bool" default="0">
             <description>GPS</description>
-            <options>
-                <option name="On" value="1" />
-                <option name="Off" value="0" />
-            </options>
         </parameter>
         <parameter name="LANGUAGE" type="uint32" default="0">
             <description>Language</description>
