@@ -1,0 +1,501 @@
+{
+    "SETTING_VIDEO_ASPECT_RATIO": {
+        "name": "Video Aspect Ratio",
+        "options": {
+            "4:3": 0,
+            "16:9": 1
+        },
+        "nr": 108,
+        "default": 1
+    },
+    "SETTING_VIDEO_RESOLUTION": {
+        "name": "Video Resolution",
+        "options": {
+            "4K": 1,
+            "4K 4:3": 18,
+            "2.7K": 4,
+            "2.7K 4:3": 6,
+            "1440": 7,
+            "1080": 9,
+            "960": 10,
+            "720": 12
+        },
+        "nr": 2,
+        "default": 9
+    },
+    "SETTING_VIDEO_FPS": {
+        "name": "Video FPS",
+        "options": {
+            "240": 0,
+            "200": 13,
+            "120": 1,
+            "100": 2,
+            "60": 5,
+            "50": 6,
+            "30": 8,
+            "25": 9,
+            "24": 10
+        },
+        "nr": 3,
+        "default": 5
+    },
+    "SETTING_VIDEO_FOV": {
+        "name": "Video FOV",
+        "options": {
+            "Linear": 4,
+            "Wide": 0,
+            "SuperView": 3
+        },
+        "nr": 4,
+        "default": 0
+    },
+    "SETTING_VIDEO_STABILIZATION": {
+        "name": "Video Stabilization",
+        "options": {
+            "Off": 0,
+            "Auto": 1
+        },
+        "nr": 78,
+        "default": 0
+    },
+    "SETTING_VIDEO_LOW_LIGHT": {
+        "name": "Video Low Light",
+        "options": {
+            "Off": 0,
+            "Auto": 1
+        },
+        "nr": 8,
+        "default": 0
+    },
+    "SETTING_VIDEO_SHORT_CLIP": {
+        "name": "Video Short Clip",
+        "options": {
+            "Off": 0,
+            "15 s": 1,
+            "30 s": 2
+        },
+        "nr": 107,
+        "default": 0
+    },
+    "SETTING_VIDEO_PROTUNE": {
+        "name": "Video Protune",
+        "options": {
+            "Off": 0,
+            "On": 1
+        },
+        "nr": 10,
+        "default": 0
+    },
+    "SETTING_VIDEO_SHUTTER": {
+        "name": "Video Shutter",
+        "options": {
+            "Auto": 0,
+            "1/60": 8,
+            "1/120": 13,
+            "1/240": 18,
+            "1/480": 22,
+            "1/960": 23
+        },
+        "nr": 73,
+        "default": 0
+    },
+    "SETTING_VIDEO_EV_COMP": {
+        "name": "Video EV Comp",
+        "options": {
+            "-2.0": 8,
+            "-1.5": 7,
+            "-1.0": 6,
+            "-0.5": 5,
+            "0.0": 4,
+            "+0.5": 3,
+            "+1.0": 2,
+            "+1.5": 1,
+            "+2.0": 0,
+            "100": 8,
+            "200": 7,
+            "400": 2,
+            "800": 4,
+            "1600": 1,
+            "3200": 3,
+            "6400": 0
+        },
+        "nr": 102,
+        "default": 0
+    },
+    "SETTING_VIDEO_ISO_MAX": {
+        "name": "Video ISO Max",
+        "options": {
+            "6400": 0,
+            "3200": 3,
+            "1600": 1,
+            "800": 4,
+            "400": 2,
+            "200": 7,
+            "100": 8
+        },
+        "nr": 13,
+        "default": 1
+    },
+    "SETTING_VIDEO_WHITE_BALANCE": {
+        "name": "Video White Balance",
+        "options": {
+            "Auto": 0,
+            "2300 K": 8,
+            "2800 K": 9,
+            "3200 K": 10,
+            "4000 K": 5,
+            "4500 K": 11,
+            "5000 K": 12,
+            "5500 K": 2,
+            "6000 K": 7,
+            "6500 K": 3,
+            "Native": 4
+        },
+        "nr": 11,
+        "default": 0
+    },
+    "SETTING_VIDEO_SHARPNESS": {
+        "name": "Video Sharpness",
+        "options": {
+            "High": 0,
+            "Medium": 1,
+            "Low": 2
+        },
+        "nr": 14,
+        "default": 0
+    },
+    "SETTING_VIDEO_COLOR": {
+        "name": "Video Color",
+        "options": {
+            "GoPro": 0,
+            "Flat": 1
+        },
+        "nr": 12,
+        "default": 0
+    },
+    "SETTING_VIDEO_RAW_AUDIO": {
+        "name": "Video RAW Audio",
+        "options": {
+            "Off": 3,
+            "Low": 0,
+            "Medium": 1,
+            "High": 2
+        },
+        "nr": 81,
+        "default": 3
+    },
+    "SETTING_VIDEO_MICS": {
+        "name": "Video Mics",
+        "options": {
+            "Auto": 2,
+            "Wind": 1,
+            "Stereo": 0
+        },
+        "nr": 80,
+        "default": 2
+    },
+    "SETTING_PHOTO_FOV": {
+        "name": "Photo FOV",
+        "options": {
+            "Linear": 10,
+            "Wide": 0
+        },
+        "nr": 17,
+        "default": 0
+    },
+    "SETTING_PHOTO_SUPERPHOTO": {
+        "name": "Photo SuperPhoto",
+        "options": {
+            "Off": 0,
+            "Auto": 1,
+            "HDR On": 2
+        },
+        "nr": 109,
+        "default": 0
+    },
+    "SETTING_PHOTO_RAW": {
+        "name": "Photo RAW",
+        "options": {
+            "Off": 0,
+            "On": 1
+        },
+        "nr": 82,
+        "default": 0
+    },
+    "SETTING_PHOTO_TIMER": {
+        "name": "Photo Timer",
+        "options": {
+            "Off": 0,
+            "3 s": 1,
+            "10 s": 2
+        },
+        "nr": 105,
+        "default": 0
+    },
+    "SETTING_PHOTO_PROTUNE": {
+        "name": "Photo Protune",
+        "options": {
+            "Off": 0,
+            "On": 1
+        },
+        "nr": 21,
+        "default": 0
+    },
+    "SETTING_PHOTO_SHUTTER": {
+        "name": "Photo Shutter",
+        "options": {
+            "Auto": 0,
+            "1/125": 1,
+            "1/250": 2,
+            "1/500": 3,
+            "1/1000": 4,
+            "1/2000": 5
+        },
+        "nr": 97,
+        "default": 0
+    },
+    "SETTING_PHOTO_EV_COMP": {
+        "name": "Photo EV Comp",
+        "options": {
+            "-2.0": 8,
+            "-1.5": 7,
+            "-1.0": 6,
+            "-0.5": 5,
+            "0.0": 4,
+            "+0.5": 3,
+            "+1.0": 2,
+            "+1.5": 1,
+            "+2.0": 0
+        },
+        "nr": 26,
+        "default": 4
+    },
+    "SETTING_PHOTO_ISO_MIN": {
+        "name": "Photo ISO Min",
+        "options": {
+            "100": 3,
+            "200": 2,
+            "400": 1,
+            "800": 0,
+            "1600": 4,
+            "3200": 5
+        },
+        "nr": 75,
+        "default": 3
+    },
+    "SETTING_PHOTO_ISO_MAX": {
+        "name": "Photo ISO Max",
+        "options": {
+            "3200": 5,
+            "1600": 4,
+            "800": 0,
+            "400": 1,
+            "200": 2,
+            "100": 3
+        },
+        "nr": 24,
+        "default": 5
+    },
+    "SETTING_PHOTO_WHITE_BALANCE": {
+        "name": "Photo White Balance",
+        "options": {
+            "Auto": 0,
+            "2300 K": 8,
+            "2800 K": 9,
+            "3200 K": 10,
+            "4000 K": 5,
+            "4500 K": 11,
+            "5000 K": 12,
+            "5500 K": 2,
+            "6000 K": 7,
+            "6500 K": 3,
+            "Native": 4
+        },
+        "nr": 22,
+        "default": 0
+    },
+    "SETTING_PHOTO_SHARPNESS": {
+        "name": "Photo Sharpness",
+        "options": {
+            "High": 0,
+            "Medium": 1,
+            "Low": 2
+        },
+        "nr": 25,
+        "default": 0
+    },
+    "SETTING_PHOTO_COLOR": {
+        "name": "Photo Color",
+        "options": {
+            "GoPro": 0,
+            "Flat": 1
+        },
+        "nr": 23,
+        "default": 0
+    },
+    "SETTING_VOICE_CONTROL": {
+        "name": "Voice Control",
+        "options": {
+            "Off": 0,
+            "On": 1
+        },
+        "nr": 86,
+        "default": 0
+    },
+    "SETTING_WAKE_ON_VOICE": {
+        "name": "Wake on Voice",
+        "options": {
+            "Off": 0,
+            "On": 1
+        },
+        "nr": 104,
+        "default": 0
+    },
+    "SETTING_VOICE_CONTROL_LANGUAGE": {
+        "name": "Voice Control Language",
+        "options": {
+            "Chinese": 8,
+            "French": 4,
+            "German": 3,
+            "Italian": 5,
+            "Japanese": 9,
+            "Korean": 10,
+            "Russian": 12
+        },
+        "nr": 85,
+        "default": 0
+    },
+    "SETTING_BEEP_VOLUME": {
+        "name": "Beep Volume",
+        "options": {
+            "Mute": 0,
+            "Low": 40,
+            "Medium": 70,
+            "High": 100
+        },
+        "nr": 87,
+        "default": 70
+    },
+    "SETTING_LEDS": {
+        "name": "LEDS",
+        "options": {
+            "All Off": 0,
+            "All On": 2,
+            "Front Off Only": 1
+        },
+        "nr": 91,
+        "default": 2
+    },
+    "SETTING_QUICK_CAPTURE": {
+        "name": "Quick Capture",
+        "options": {
+            "Off": 0,
+            "On": 1
+        },
+        "nr": 54,
+        "default": 0
+    },
+    "SETTING_DEFAULT_MODE": {
+        "name": "Default Mode",
+        "options": {
+            "Video": 12,
+            "Looping": 15,
+            "Photo": 17,
+            "Night Photo": 18,
+            "Burst Photo": 19,
+            "Time Warp Video": 24,
+            "Time Lapse Video": 13,
+            "Time Lapse Photo": 20,
+            "Night Lapse Photo": 21
+        },
+        "nr": 89,
+        "default": 12
+    },
+    "SETTING_AUTO_POWER_OFF": {
+        "name": "Auto Power Off",
+        "options": {
+            "Never": 0,
+            "5 Min": 4,
+            "15 Min": 6,
+            "30 Min": 7
+        },
+        "nr": 59,
+        "default": 0
+    },
+    "SETTING_LANDSCAPE_LOCK": {
+        "name": "Landscape Lock",
+        "options": {
+            "Off": 0,
+            "Up": 1,
+            "Down": 2
+        },
+        "nr": 112,
+        "default": 0
+    },
+    "SETTING_SCREEN_SAVER": {
+        "name": "Screen Saver",
+        "options": {
+            "Never": 0,
+            "1 Min": 1,
+            "2 Min": 2,
+            "3 Min": 3
+        },
+        "nr": 51,
+        "default": 0
+    },
+    "SETTING_BRIGTHNESS": {
+        "name": "Brigthness",
+        "options": {
+            "Off": 0,
+            "Low": 40,
+            "Medium": 70,
+            "High": 100
+        },
+        "nr": 88,
+        "default": 70
+    },
+    "SETTING_GPS": {
+        "name": "GPS",
+        "options": {
+            "Off": 0,
+            "On": 1
+        },
+        "nr": 83,
+        "default": 0
+    },
+    "SETTING_LANGUAGE": {
+        "name": "Language",
+        "options": {
+            "English": 0,
+            "Francais": 6,
+            "Deutsch": 2,
+            "Italiano": 3,
+            "Espanol": 4,
+            "Chinese": 1,
+            "Japanese": 5,
+            "Korean": 7,
+            "Portugues": 8,
+            "Russian": 9
+        },
+        "nr": 84,
+        "default": 0
+    },
+    "SETTING_VIDEO_FORMAT": {
+        "name": "Video Format",
+        "options": {
+            "NTSC": 0,
+            "PAL": 1
+        },
+        "nr": 57,
+        "default": 0
+    },
+    "SETTING_VIDEO_COMPRESSION": {
+        "name": "Video Compression",
+        "options": {
+            "H.264 + HEVC": 0,
+            "HEVC": 1
+        },
+        "nr": 106,
+        "default": 0
+    }
+}

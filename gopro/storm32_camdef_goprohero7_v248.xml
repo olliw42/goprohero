@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mavlinkcamera>
+    <definition version="1">
+        <model>STorM32 Hero7 Black</model>
+        <vendor>www.olliw.eu</vendor>
+    </definition>
+    <parameters>
+        <!-- control = 0 tells us this should not create an automatic UI control -->
+        <parameter name="CAM_MODE" type="uint32" default="1" control="0">
+            <description>Camera Mode</description>
+            <options>
+                <option name="Photo" value="0">
+                    <exclusions>
+                        <exclude>VID_ASPECRATIO</exclude>
+                        <exclude>VID_RESOLUTION</exclude>
+                        <exclude>VID_FPS</exclude>
+                        <exclude>VID_FOV</exclude>
+                        <exclude>VID_STABILIZATIO</exclude>
+                        <exclude>VID_LOWLIGHT</exclude>
+                        <exclude>VID_SHORTCLIP</exclude>
+                        <exclude>VID_PROTUNE</exclude>
+                        <exclude>VID_SHUTTER</exclude>
+                        <exclude>VID_EVCOMP</exclude>
+                        <exclude>VID_ISOMAX</exclude>
+                        <exclude>VID_WHITEBALAN</exclude>
+                        <exclude>VID_SHARPNESS</exclude>
+                        <exclude>VID_COLOR</exclude>
+                        <exclude>VID_RAWAUDIO</exclude>
+                        <exclude>VID_MICS</exclude>
+                        <exclude>VID_FORMAT</exclude>
+                        <exclude>VID_COMPRESSION</exclude>
+                    </exclusions>
+                </option>
+                <option name="Video" value="1">
+                    <exclusions>
+                        <exclude>PHO_FOV</exclude>
+                        <exclude>PHO_SUPERPHOTO</exclude>
+                        <exclude>PHO_RAW</exclude>
+                        <exclude>PHO_TIMER</exclude>
+                        <exclude>PHO_PROTUNE</exclude>
+                        <exclude>PHO_SHUTTER</exclude>
+                        <exclude>PHO_EVCOMP</exclude>
+                        <exclude>PHO_ISOMIN</exclude>
+                        <exclude>PHO_ISOMAX</exclude>
+                        <exclude>PHO_WHITEBALAN</exclude>
+                        <exclude>PHO_SHARPNESS</exclude>
+                        <exclude>PHO_COLOR</exclude>
+                    </exclusions>
+                </option>
+            </options>
+        </parameter>
+        <parameter name="VID_ASPECRATIO" type="uint32" default="1">
+            <description>Aspect Ratio</description>
+            <options>
+                <option name="4:3" value="0" />
+                <option name="16:9" value="1" />
+            </options>
+        </parameter>
+        <parameter name="VID_RESOLUTION" type="uint32" default="9">
+            <description>Resolution</description>
+            <options>
+                <option name="4K" value="1" />
+                <option name="4K 4:3" value="18" />
+                <option name="2.7K" value="4" />
+                <option name="2.7K 4:3" value="6" />
+                <option name="1440" value="7" />
+                <option name="1080" value="9" />
+                <option name="960" value="10" />
+                <option name="720" value="12" />
+            </options>
+        </parameter>
+        <parameter name="VID_FPS" type="uint32" default="5">
+            <description>FPS</description>
+            <options>
+                <option name="240" value="0" />
+                <option name="200" value="13" />
+                <option name="120" value="1" />
+                <option name="100" value="2" />
+                <option name="60" value="5" />
+                <option name="50" value="6" />
+                <option name="30" value="8" />
+                <option name="25" value="9" />
+                <option name="24" value="10" />
+            </options>
+        </parameter>
+        <parameter name="VID_FOV" type="uint32" default="0">
+            <description>FOV</description>
+            <options>
+                <option name="Linear" value="4" />
+                <option name="Wide" value="0" />
+                <option name="SuperView" value="3" />
+            </options>
+        </parameter>
+        <parameter name="VID_STABILIZATIO" type="uint32" default="0">
+            <description>Stabilization</description>
+            <options>
+                <option name="Off" value="0" />
+                <option name="Auto" value="1" />
+            </options>
+        </parameter>
+        <parameter name="VID_LOWLIGHT" type="uint32" default="0">
+            <description>Low Light</description>
+            <options>
+                <option name="Off" value="0" />
+                <option name="Auto" value="1" />
+            </options>
+        </parameter>
+        <parameter name="VID_SHORTCLIP" type="uint32" default="0">
+            <description>Short Clip</description>
+            <options>
+                <option name="Off" value="0" />
+                <option name="15 s" value="1" />
+                <option name="30 s" value="2" />
+            </options>
+        </parameter>
+        <parameter name="VID_PROTUNE" type="bool" default="0">
+            <description>Protune</description>
+        </parameter>
+        <parameter name="VID_SHUTTER" type="uint32" default="0">
+            <description>Shutter</description>
+            <options>
+                <option name="Auto" value="0" />
+                <option name="1/60" value="8" />
+                <option name="1/120" value="13" />
+                <option name="1/240" value="18" />
+                <option name="1/480" value="22" />
+                <option name="1/960" value="23" />
+            </options>
+        </parameter>
+        <parameter name="VID_EVCOMP" type="uint32" default="0">
+            <description>EV Comp</description>
+            <options>
+                <option name="-2.0" value="8" />
+                <option name="-1.5" value="7" />
+                <option name="-1.0" value="6" />
+                <option name="-0.5" value="5" />
+                <option name="0.0" value="4" />
+                <option name="+0.5" value="3" />
+                <option name="+1.0" value="2" />
+                <option name="+1.5" value="1" />
+                <option name="+2.0" value="0" />
+                <option name="100" value="8" />
+                <option name="200" value="7" />
+                <option name="400" value="2" />
+                <option name="800" value="4" />
+                <option name="1600" value="1" />
+                <option name="3200" value="3" />
+                <option name="6400" value="0" />
+            </options>
+        </parameter>
+        <parameter name="VID_ISOMAX" type="uint32" default="1">
+            <description>ISO Max</description>
+            <options>
+                <option name="6400" value="0" />
+                <option name="3200" value="3" />
+                <option name="1600" value="1" />
+                <option name="800" value="4" />
+                <option name="400" value="2" />
+                <option name="200" value="7" />
+                <option name="100" value="8" />
+            </options>
+        </parameter>
+        <parameter name="VID_WHITEBALAN" type="uint32" default="0">
+            <description>White Balance</description>
+            <options>
+                <option name="Auto" value="0" />
+                <option name="2300 K" value="8" />
+                <option name="2800 K" value="9" />
+                <option name="3200 K" value="10" />
+                <option name="4000 K" value="5" />
+                <option name="4500 K" value="11" />
+                <option name="5000 K" value="12" />
+                <option name="5500 K" value="2" />
+                <option name="6000 K" value="7" />
+                <option name="6500 K" value="3" />
+                <option name="Native" value="4" />
+            </options>
+        </parameter>
+        <parameter name="VID_SHARPNESS" type="uint32" default="0">
+            <description>Sharpness</description>
+            <options>
+                <option name="High" value="0" />
+                <option name="Medium" value="1" />
+                <option name="Low" value="2" />
+            </options>
+        </parameter>
+        <parameter name="VID_COLOR" type="uint32" default="0">
+            <description>Color</description>
+            <options>
+                <option name="GoPro" value="0" />
+                <option name="Flat" value="1" />
+            </options>
+        </parameter>
+        <parameter name="VID_RAWAUDIO" type="uint32" default="3">
+            <description>RAW Audio</description>
+            <options>
+                <option name="Off" value="3" />
+                <option name="Low" value="0" />
+                <option name="Medium" value="1" />
+                <option name="High" value="2" />
+            </options>
+        </parameter>
+        <parameter name="VID_MICS" type="uint32" default="2">
+            <description>Mics</description>
+            <options>
+                <option name="Auto" value="2" />
+                <option name="Wind" value="1" />
+                <option name="Stereo" value="0" />
+            </options>
+        </parameter>
+        <parameter name="PHO_FOV" type="uint32" default="0">
+            <description>FOV</description>
+            <options>
+                <option name="Linear" value="10" />
+                <option name="Wide" value="0" />
+            </options>
+        </parameter>
+        <parameter name="PHO_SUPERPHOTO" type="uint32" default="0">
+            <description>SuperPhoto</description>
+            <options>
+                <option name="Off" value="0" />
+                <option name="Auto" value="1" />
+                <option name="HDR On" value="2" />
+            </options>
+        </parameter>
+        <parameter name="PHO_RAW" type="bool" default="0">
+            <description>RAW</description>
+        </parameter>
+        <parameter name="PHO_TIMER" type="uint32" default="0">
+            <description>Timer</description>
+            <options>
+                <option name="Off" value="0" />
+                <option name="3 s" value="1" />
+                <option name="10 s" value="2" />
+            </options>
+        </parameter>
+        <parameter name="PHO_PROTUNE" type="bool" default="0">
+            <description>Protune</description>
+        </parameter>
+        <parameter name="PHO_SHUTTER" type="uint32" default="0">
+            <description>Shutter</description>
+            <options>
+                <option name="Auto" value="0" />
+                <option name="1/125" value="1" />
+                <option name="1/250" value="2" />
+                <option name="1/500" value="3" />
+                <option name="1/1000" value="4" />
+                <option name="1/2000" value="5" />
+            </options>
+        </parameter>
+        <parameter name="PHO_EVCOMP" type="uint32" default="4">
+            <description>EV Comp</description>
+            <options>
+                <option name="-2.0" value="8" />
+                <option name="-1.5" value="7" />
+                <option name="-1.0" value="6" />
+                <option name="-0.5" value="5" />
+                <option name="0.0" value="4" />
+                <option name="+0.5" value="3" />
+                <option name="+1.0" value="2" />
+                <option name="+1.5" value="1" />
+                <option name="+2.0" value="0" />
+            </options>
+        </parameter>
+        <parameter name="PHO_ISOMIN" type="uint32" default="3">
+            <description>ISO Min</description>
+            <options>
+                <option name="100" value="3" />
+                <option name="200" value="2" />
+                <option name="400" value="1" />
+                <option name="800" value="0" />
+                <option name="1600" value="4" />
+                <option name="3200" value="5" />
+            </options>
+        </parameter>
+        <parameter name="PHO_ISOMAX" type="uint32" default="5">
+            <description>ISO Max</description>
+            <options>
+                <option name="3200" value="5" />
+                <option name="1600" value="4" />
+                <option name="800" value="0" />
+                <option name="400" value="1" />
+                <option name="200" value="2" />
+                <option name="100" value="3" />
+            </options>
+        </parameter>
+        <parameter name="PHO_WHITEBALAN" type="uint32" default="0">
+            <description>White Balance</description>
+            <options>
+                <option name="Auto" value="0" />
+                <option name="2300 K" value="8" />
+                <option name="2800 K" value="9" />
+                <option name="3200 K" value="10" />
+                <option name="4000 K" value="5" />
+                <option name="4500 K" value="11" />
+                <option name="5000 K" value="12" />
+                <option name="5500 K" value="2" />
+                <option name="6000 K" value="7" />
+                <option name="6500 K" value="3" />
+                <option name="Native" value="4" />
+            </options>
+        </parameter>
+        <parameter name="PHO_SHARPNESS" type="uint32" default="0">
+            <description>Sharpness</description>
+            <options>
+                <option name="High" value="0" />
+                <option name="Medium" value="1" />
+                <option name="Low" value="2" />
+            </options>
+        </parameter>
+        <parameter name="PHO_COLOR" type="uint32" default="0">
+            <description>Color</description>
+            <options>
+                <option name="GoPro" value="0" />
+                <option name="Flat" value="1" />
+            </options>
+        </parameter>
+        <parameter name="VOI_CONTROL" type="bool" default="0">
+            <description>Voice Control</description>
+        </parameter>
+        <parameter name="WAK_ONVOICE" type="bool" default="0">
+            <description>Wake on Voice</description>
+        </parameter>
+        <parameter name="VOI_CONTRLANGU" type="uint32" default="0">
+            <description>Voice Control Language</description>
+            <options>
+                <option name="Chinese" value="8" />
+                <option name="French" value="4" />
+                <option name="German" value="3" />
+                <option name="Italian" value="5" />
+                <option name="Japanese" value="9" />
+                <option name="Korean" value="10" />
+                <option name="Russian" value="12" />
+            </options>
+        </parameter>
+        <parameter name="BEE_VOLUME" type="uint32" default="70">
+            <description>Beep Volume</description>
+            <options>
+                <option name="Mute" value="0" />
+                <option name="Low" value="40" />
+                <option name="Medium" value="70" />
+                <option name="High" value="100" />
+            </options>
+        </parameter>
+        <parameter name="LEDS" type="uint32" default="2">
+            <description>LEDS</description>
+            <options>
+                <option name="All Off" value="0" />
+                <option name="All On" value="2" />
+                <option name="Front Off Only" value="1" />
+            </options>
+        </parameter>
+        <parameter name="QUI_CAPTURE" type="bool" default="0">
+            <description>Quick Capture</description>
+        </parameter>
+        <parameter name="DEF_MODE" type="uint32" default="12">
+            <description>Default Mode</description>
+            <options>
+                <option name="Video" value="12" />
+                <option name="Looping" value="15" />
+                <option name="Photo" value="17" />
+                <option name="Night Photo" value="18" />
+                <option name="Burst Photo" value="19" />
+                <option name="Time Warp Video" value="24" />
+                <option name="Time Lapse Video" value="13" />
+                <option name="Time Lapse Photo" value="20" />
+                <option name="Night Lapse Photo" value="21" />
+            </options>
+        </parameter>
+        <parameter name="AUT_POWEROFF" type="uint32" default="0">
+            <description>Auto Power Off</description>
+            <options>
+                <option name="Never" value="0" />
+                <option name="5 Min" value="4" />
+                <option name="15 Min" value="6" />
+                <option name="30 Min" value="7" />
+            </options>
+        </parameter>
+        <parameter name="LAN_LOCK" type="uint32" default="0">
+            <description>Landscape Lock</description>
+            <options>
+                <option name="Off" value="0" />
+                <option name="Up" value="1" />
+                <option name="Down" value="2" />
+            </options>
+        </parameter>
+        <parameter name="SCR_SAVER" type="uint32" default="0">
+            <description>Screen Saver</description>
+            <options>
+                <option name="Never" value="0" />
+                <option name="1 Min" value="1" />
+                <option name="2 Min" value="2" />
+                <option name="3 Min" value="3" />
+            </options>
+        </parameter>
+        <parameter name="BRIGTHNESS" type="uint32" default="70">
+            <description>Brigthness</description>
+            <options>
+                <option name="Off" value="0" />
+                <option name="Low" value="40" />
+                <option name="Medium" value="70" />
+                <option name="High" value="100" />
+            </options>
+        </parameter>
+        <parameter name="GPS" type="bool" default="0">
+            <description>GPS</description>
+        </parameter>
+        <parameter name="LANGUAGE" type="uint32" default="0">
+            <description>Language</description>
+            <options>
+                <option name="English" value="0" />
+                <option name="Francais" value="6" />
+                <option name="Deutsch" value="2" />
+                <option name="Italiano" value="3" />
+                <option name="Espanol" value="4" />
+                <option name="Chinese" value="1" />
+                <option name="Japanese" value="5" />
+                <option name="Korean" value="7" />
+                <option name="Portugues" value="8" />
+                <option name="Russian" value="9" />
+            </options>
+        </parameter>
+        <parameter name="VID_FORMAT" type="uint32" default="0">
+            <description>Format</description>
+            <options>
+                <option name="NTSC" value="0" />
+                <option name="PAL" value="1" />
+            </options>
+        </parameter>
+        <parameter name="VID_COMPRESSION" type="uint32" default="0">
+            <description>Compression</description>
+            <options>
+                <option name="H.264 + HEVC" value="0" />
+                <option name="HEVC" value="1" />
+            </options>
+        </parameter>
+    </parameters>
+</mavlinkcamera>
+

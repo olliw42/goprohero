@@ -36,15 +36,13 @@ import datetime
 #this is important: is appended to the xml file name
 VERSION = 244
 
-camera = "Hero5"
 
+jsoninputfilename = "settings-json.txt"
+matrixjsoninputfilename = "resolution-matrix-json.txt"
+xmloutputfilename = "storm32_camdef_goprohero5" #extension will be added
 
-jsoninputfilename = camera.lower()+"-settings-json.txt"
-matrixjsoninputfilename = camera.lower()+"-resolution-matrix-json.txt"
-xmloutputfilename = "storm32_camdef_gopro"+camera.lower() #extension will be added
-
-codetemplateinputfilename = "storm32-gopro"+camera.lower()+"-lib-template.h"
-codeoutputfilename = "storm32-gopro"+camera.lower()+"-lib" #extension will be added
+codetemplateinputfilename = "storm32-goprohero5-lib-template.h"
+codeoutputfilename = "storm32-goprohero5-lib" #extension will be added
 
 do_with_matrix_resolution = 0 # enable for "FULL" method, adds parameterranges to VID_RESOLUTION section
 do_with_format = 0 # enable for NTSC/PAL method, adds parameterranges to VID_FORMAT section to only handle 60/50, 30/25
@@ -96,7 +94,7 @@ if (1):
     xml += '<?xml version="1.0" encoding="UTF-8" ?>\n'
     xml += '<mavlinkcamera>\n'
     xml += '    <definition version="1">\n'
-    xml += '        <model>STorM32 '+camera+' Black</model>\n'
+    xml += '        <model>STorM32 Hero5 Black</model>\n'
     xml += '        <vendor>www.olliw.eu</vendor>\n'
     xml += '    </definition>\n'
     xml += '    <parameters>\n'
@@ -273,7 +271,7 @@ if (1):
             type = 'UINT32'
         else: 
             type = 'UINT16'
-        code_h += '  { ('+type.lower()+'_t*)&_mavcameraparams_gopro'+camera.lower()+'.'+(setting_name+',').ljust(setting_name_maxlen+3)+'MAV_PARAM_TYPE_'+type+','
+        code_h += '  { ('+type.lower()+'_t*)&_mavcameraparams_goprohero5.'+(setting_name+',').ljust(setting_name_maxlen+3)+'MAV_PARAM_TYPE_'+type+','
         code_h += '  "'+setting_mavlink_name+'" },\n'
         
     code_template_h = code_template_h.replace('$$$GOPRO_SETUP_PARAMETERS$$$',code_h[:-1])
@@ -285,7 +283,7 @@ if (1):
         setting_mavlink_name = make_mavlink_name(options['name'])
         setting_default_nr = options['default']
         if setting_default_nr != 0:
-            code_h += '  _mavcameraparams_gopro'+camera.lower()+'.'+setting_name+' = '+str(setting_default_nr)+';\n'
+            code_h += '  _mavcameraparams_goprohero5.'+setting_name+' = '+str(setting_default_nr)+';\n'
 
     code_template_h = code_template_h.replace('$$$GOPRO_DEFAULTS$$$',code_h[:-1])
 

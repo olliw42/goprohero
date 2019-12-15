@@ -19,7 +19,7 @@
 #define GOPRO_SSID "GP........"      // Wifi name (SSID)videoon;
 #define GOPRO_PASS ".........."      // WiFi password
 
-#define VERSION_STR "(c) olliw.eu, v2019-10-31"
+#define VERSION_STR "(c) olliw.eu, v2019-12-15"
 
 
 //for debugging
@@ -400,7 +400,7 @@ void loop()
         String s2 = settings_previous.substring(s2pos_last, s2pos);
 
         if( s != s2 ){
-          Serial.print(s); Serial.print(" (was "); Serial.print(s2); Serial.println("(");
+          Serial.print(s); Serial.print(" (was "); Serial.print(s2); Serial.println(")");
         }
         
         spos_last = spos;

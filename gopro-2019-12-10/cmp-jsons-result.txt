@@ -1,0 +1,789 @@
+
+2: SETTING_VIDEO_RESOLUTION <-> STATUSSETTING_VIDEO_RESOLUTION
+    1 4K
+    4 2.7K
+    6 2.7K 4:3
+    7 1440p
+    9 1080p
+    10 960p
+    12 720p
+    17 WVGA
+
+    2 4K SuperView
+    1 4K
+    5 2.7K SuperView
+    4 2.7K
+    7 1440
+    8 1080 SuperView
+    9 1080
+    10 960
+    11 720 SuperView
+    12 720
+    13 WVGA
+
+3: SETTING_VIDEO_FRAME_RATE <-> STATUSSETTING_VIDEO_FRAME_RATE
+    0 240fps
+    1 120fps
+    2 100fps
+    3 90fps
+    4 80fps
+    5 60fps
+    6 50fps
+    7 48fps
+    8 30fps
+    9 25fps
+
+    0 240
+    1 120
+    2 100
+    3 90
+    4 80
+    5 60
+    6 50
+    7 48
+    8 30
+    9 25
+    10 24
+    11 15
+    12 12.5
+
+4: SETTING_VIDEO_FOV <-> STATUSSETTING_VIDEO_FOV
+    0 Wide
+    1 Medium
+    2 Narrow
+    4 Linear
+
+    0 Wide
+    1 Medium
+    2 Narrow
+    4 Linear
+
+5: SETTING_VIDEO_TIMELAPSE_INTERVAL <-> STATUSSETTING_VIDEO_TIMELAPSE_INTERVAL
+    0 0.5
+    1 1
+    2 2
+    3 5
+    4 10
+    5 30
+    6 60
+
+    0 1/2 Seconds
+    1 1 Second
+    2 2 Seconds
+    3 5 Seconds
+    4 10 Seconds
+    5 30 Seconds
+    6 60 Seconds
+
+6: SETTING_VIDEO_LOOPING_DURATION <-> STATUSSETTING_VIDEO_LOOPING_INTERVAL
+!! NOT EQUAL !!
+    0 Max
+    1 5Min
+    2 20Min
+    3 60Min
+    4 120Min
+
+    0 Max
+    1 5 Minutes
+    2 20 Minutes
+    3 60 Minutes
+    4 120 Minutes
+
+7: SETTING_VIDEO_VIDEO <-> STATUSSETTING_VIDEO_PHOTO+VIDEO_INTERVAL
+!! NOT EQUAL !!
+    1 5
+    2 10
+    3 30
+    4 60Min
+
+    1 1 Photo / 5 Seconds
+    2 1 Photo / 10 Seconds
+    3 1 Photo / 30 Seconds
+    4 1 Photo / 60 Seconds
+
+8: SETTING_VIDEO_LOW_LIGHT <-> STATUSSETTING_VIDEO_LOW_LIGHT
+    1 On
+    0 Off
+
+    1 On
+    0 Off
+
+9: SETTING_VIDEO_SPOT_METER <-> STATUSSETTING_VIDEO_SPOT_METER
+    0 Off
+    1 On
+
+    1 On
+    0 Off
+
+10: SETTING_VIDEO_PROTUNE <-> STATUSSETTING_VIDEO_PROTUNE
+    0 Off
+    1 On
+
+    1 On
+    0 Off
+
+11: SETTING_VIDEO_WHITE_BALANCE <-> STATUSSETTING_VIDEO_WHITE_BALANCE
+    0 Auto
+    1 3000k
+    5 4000k
+    6 4800k
+    2 5500k
+    7 6000k
+    3 6500k
+    4 Native
+
+    0 Auto
+    1 3000K
+    5 4000K
+    6 4800K
+    2 5500K
+    7 6000K
+    3 6500K
+    4 Native
+
+12: SETTING_VIDEO_COLOR <-> STATUSSETTING_VIDEO_COLOR
+    0 GOPRO
+    1 Flat
+
+    0 GoPro Color
+    1 Flat
+
+13: SETTING_VIDEO_ISO_LIMIT <-> STATUSSETTING_VIDEO_ISO_LIMIT
+    0 6400
+    1 1600
+    2 400
+    3 3200
+    4 800
+    7 200
+    8 100
+
+    0 6400
+    1 1600
+    2 400
+    3 3200
+    4 800
+    7 200
+    8 100
+
+14: SETTING_VIDEO_SHARPNESS <-> STATUSSETTING_VIDEO_SHARPNESS
+    0 High
+    1 Med
+    2 Low
+
+    0 High
+    1 Medium
+    2 Low
+
+15: SETTING_VIDEO_EV_STEPS <-> STATUSSETTING_VIDEO_EV_COMP
+!! NOT EQUAL !!
+    0 +2
+    1 +1.5
+    2 +1
+    3 +0.5
+    4 0
+    5 -0.5
+    6 -1
+    7 -1.5
+    8 -2
+
+    8 -2.0
+    7 -1.5
+    6 -1.0
+    5 -0.5
+    4 0.0
+    3 0.5
+    2 1.0
+    1 1.5
+    0 2.0
+
+17: SETTING_PHOTO_RESOLUTION <-> STATUSSETTING_PHOTO_MEGAPIXELS
+!! NOT EQUAL !!
+    0 12MP Wide
+    10 12MP Linear
+    8 12MP Medium
+    9 12MP Narrow
+
+    0 12MP Wide
+    1 7MP Wide
+    2 7MP Med
+    3 5MP Med
+
+18: not found <-> STATUSSETTING_PHOTO_CONTINUOUS_RATE
+!! ONLY in STATUS !!
+    0 3 Frames / Second
+    1 5 Frames / Second
+    2 10 Frames / Second
+
+19: SETTING_PHOTO_EXPOSURE <-> STATUSSETTING_PHOTO_SHUTTER
+!! NOT EQUAL !!
+    0 Auto
+    1 2
+    2 5
+    3 10
+    4 15
+    5 20
+    6 30
+
+    0 Auto
+    1 2 Seconds
+    2 5 Seconds
+    3 10 Seconds
+    4 15 Seconds
+    5 20 Seconds
+    6 30 Seconds
+
+20: SETTING_PHOTO_SPOT_METER <-> STATUSSETTING_PHOTO_SPOT_METER
+    0 Off
+    1 On
+
+    1 On
+    0 Off
+
+21: SETTING_PHOTO_PROTUNE <-> STATUSSETTING_PHOTO_PROTUNE
+    0 Off
+    1 On
+
+    1 On
+    0 Off
+
+22: SETTING_PHOTO_WHITE_BALANCE <-> STATUSSETTING_PHOTO_WHITE_BALANCE
+    0 Auto
+    1 3000k
+    5 4000k
+    6 4800k
+    2 5500k
+    7 6000k
+    3 6500k
+    4 Native
+
+    0 Auto
+    1 3000K
+    5 4000K
+    6 4800K
+    2 5500K
+    7 6000K
+    3 6500K
+    4 Native
+
+23: SETTING_PHOTO_COLOR <-> STATUSSETTING_PHOTO_COLOR
+    0 GOPRO
+    1 Flat
+
+    0 GoPro
+    1 Flat
+
+24: SETTING_PHOTO_ISO_LIMIT <-> STATUSSETTING_PHOTO_ISO_LIMIT
+    0 800
+    1 400
+    2 200
+    3 100
+
+    0 800
+    1 400
+    2 200
+    3 100
+
+25: SETTING_PHOTO_SHARPNESS <-> STATUSSETTING_PHOTO_SHARPNESS
+    0 High
+    1 Med
+    2 Low
+
+    0 High
+    1 Medium
+    2 Low
+
+26: SETTING_PHOTO_EV_STEPS <-> STATUSSETTING_PHOTO_EV_COMP
+!! NOT EQUAL !!
+    0 +2
+    1 +1.5
+    2 +1
+    3 +0.5
+    4 0
+    5 -0.5
+    6 -1
+    7 -1.5
+    8 -2
+
+    8 -2.0
+    7 -1.5
+    6 -1.0
+    5 -0.5
+    4 0.0
+    3 0.5
+    2 1.0
+    1 1.5
+    0 2.0
+
+27: not found <-> STATUSSETTING_MULTISHOT_DEFAULT_SUB_MODE
+!! ONLY in STATUS !!
+    0 Burst
+    1 Time Lapse
+    2 Night Lapse
+
+28: not found <-> STATUSSETTING_MULTISHOT_MEGAPIXELS
+!! ONLY in STATUS !!
+    0 12MP Wide
+    1 7MP Wide
+    2 7MP Med
+    3 5MP Med
+
+29: SETTING_MULTISHOT_BURST_RATE <-> STATUSSETTING_MULTISHOT_BURST_RATE
+    0 3/1
+    1 5/1
+    2 10/1
+    3 10/2
+    4 10/3
+    5 30/1
+    6 30/2
+    7 30/3
+    8 30/6
+
+    0 3 Photos / 1 Second
+    1 5 Photos / 1 Second
+    2 10 Photos / 1 Second
+    3 10 Photos / 2 Seconds
+    4 10 Photos / 3 Seconds
+    5 30 Photos / 1 Second
+    6 30 Photos / 2 Seconds
+    7 30 Photos / 3 Seconds
+    8 30 Photos / 6 Seconds
+
+30: SETTING_MULTISHOT_TIMELAPSE_INTERVAL <-> STATUSSETTING_MULTISHOT_TIMELAPSE_INTERVAL
+    0 0.5
+    1 1
+    2 2
+    5 5
+    10 10
+    30 30
+    60 60
+
+    0 1 Photo / 0.5 Sec
+    1 1 Photo / 1 Sec
+    2 1 Photo / 2 Sec
+    5 1 Photo / 5 Sec
+    10 1 Photo / 10 Sec
+    30 1 Photo / 30 Sec
+    60 1 Photo / 60 Sec
+
+31: SETTING_MULTISHOT_EXPOSURE <-> not found
+!! ONLY in SETTING !!
+    0 Auto
+    1 2
+    2 5
+    3 10
+    4 15
+    5 20
+    6 30
+
+32: SETTING_MULTISHOT_NIGHTLAPSE_INTERVAL <-> STATUSSETTING_MULTISHOT_NIGHTLAPSE_INTERVAL
+    0 Continuous
+    4 4s
+    5 5s
+    10 10s
+    15 15s
+    20 20s
+    30 30s
+    60 1m
+    120 2m
+    300 5m
+    1800 30m
+    3600 60m
+
+    0 Continuous
+    4 4 Seconds
+    5 5 Seconds
+    10 10 Seconds
+    15 15 Seconds
+    20 20 Seconds
+    30 30 Seconds
+    60 1 Minute
+    120 2 Minutes
+    300 5 Minutes
+    1800 30 Minutes
+    3600 60 Minutes
+
+33: SETTING_MULTISHOT_SPOT_METER <-> STATUSSETTING_MULTISHOT_SPOT_METER
+    0 Off
+    1 On
+
+    1 On
+    0 Off
+
+34: SETTING_MULTISHOT_PROTUNE <-> STATUSSETTING_MULTISHOT_PROTUNE
+    0 Off
+    1 On
+
+    1 On
+    0 Off
+
+35: SETTING_MULTISHOT_WHITE_BALANCE <-> STATUSSETTING_MULTISHOT_WHITE_BALANCE
+    0 Auto
+    1 3000k
+    5 4000k
+    6 4800k
+    2 5500k
+    7 6000k
+    3 6500k
+    4 Native
+
+    0 Auto
+    1 3000K
+    5 4000K
+    6 4800K
+    2 5500K
+    7 6000K
+    3 6500K
+    4 Native
+
+36: SETTING_MULTISHOT_COLOR <-> STATUSSETTING_MULTISHOT_COLOR
+    0 GOPRO
+    1 Flat
+
+    0 GoPro
+    1 Flat
+
+37: SETTING_MULTISHOT_ISO_LIMIT <-> STATUSSETTING_MULTISHOT_ISO_LIMIT
+    0 800
+    1 400
+    2 200
+    3 100
+
+    0 800
+    1 400
+    2 200
+    3 100
+
+38: SETTING_MULTISHOT_SHARPNESS <-> STATUSSETTING_MULTISHOT_SHARPNESS
+    0 High
+    1 Med
+    2 Low
+
+    0 High
+    1 Medium
+    2 Low
+
+39: SETTING_MULTISHOT_EV_STEPS <-> STATUSSETTING_MULTISHOT_EV_COMP
+!! NOT EQUAL !!
+    0 +2
+    1 +1.5
+    2 +1
+    3 +0.5
+    4 0
+    5 -0.5
+    6 -1
+    7 -1.5
+    8 -2
+
+    8 -2.0
+    7 -1.5
+    6 -1.0
+    5 -0.5
+    4 0.0
+    3 0.5
+    2 1.0
+    1 1.5
+    0 2.0
+
+49: SETTING_LCD_BRIGHTNESS <-> STATUSSETTING_LCD_BRIGHTNESS
+    0 High
+    1 Medium
+    2 Low
+
+    0 High
+    1 Medium
+    2 Low
+
+50: SETTING_LCD_LOCK <-> STATUSSETTING_LCD_LOCK
+    1 On
+    0 Off
+
+    1 On
+    0 Off
+
+51: SETTING_LCD_TIMEOUT_SLEEP <-> STATUSSETTING_LCD_TIMEOUT_SLEEP
+    0 LCD Never sleep
+    1 LCD 1min sleep timeout
+    2 LCD 2min sleep timeout
+    3 LCD 3min sleep timeout
+
+    0 Never sleep
+    1 1min sleep
+    2 2min sleep
+    3 3min sleep
+
+52: SETTING_ORIENTATION <-> STATUSSETTING_ORIENTATION
+    1 Up
+    2 Down
+    0 Gyro based
+
+    0 Auto
+    1 UP
+    2 DOWN
+
+53: SETTING_DEFAULT_BOOT_MODE <-> STATUSSETTING_DEFAULT_BOOT_MODE
+    0 Video
+    1 Photo
+    2 MultiShot
+
+    0 Video
+    1 Photo
+    2 MultiShot
+
+54: SETTING_QUICK_CAPTURE <-> STATUSSETTING_QUICK_CAPTURE
+    1 On
+    0 Off
+
+    0 Off
+    1 On
+
+55: not found <-> STATUSSETTING_LED_STATUS
+!! ONLY in STATUS !!
+    0 Off
+
+56: SETTING_BEEPS <-> STATUSSETTING_VOLUME_FOR_BEEPS
+!! NOT EQUAL !!
+    2 Off
+    1 0.7
+    0 Full
+
+    2 Mute
+
+57: SETTING_VIDEO_FORMAT <-> STATUSSETTING_VIDEO_FORMAT
+    0 NTSC
+    1 PAL
+
+    0 NTSC
+    1 PAL
+
+58: SETTING_ON_SCREEN_DISPLAY <-> STATUSSETTING_ON_SCREEN_DATA
+!! NOT EQUAL !!
+    1 On
+    0 Off
+
+    1 On
+    0 Off
+
+59: SETTING_AUTO_OFF <-> STATUSSETTING_AUTO_POWER_OFF
+!! NOT EQUAL !!
+    0 Never
+    1 1m
+    2 2m
+    3 3m
+    4 5m
+
+    0 Never
+    1 1 min
+    2 2 mins
+    3 3 mins
+    4 5 mins
+
+62: SETTING_STREAM_BITRATE <-> not found
+!! ONLY in SETTING !!
+    250000 250 Kbps
+    400000 400 Kbps
+    600000 600 Kbps
+    700000 700 Kbps
+    800000 800 Kbps
+    1000000 1 Mbps
+    1200000 1.2 Mbps
+    1600000 1.6 Mbps
+    2000000 2 Mbps
+    2400000 2.4 Mbps
+
+63: SETTING_WIFI_AP_SETTINGS <-> not found
+!! ONLY in SETTING !!
+    0 Turn WiFi OFF
+    1 Switch WiFi to App/Smartphone mode
+    2 Switch WiFi to GoPro RC
+    4 Switch WiFi to GoPro Smart Remote RC
+
+64: SETTING_STREAM_WINDOW_SIZE <-> not found
+!! ONLY in SETTING !!
+    0 Default
+    1 240
+    3 240 1:2
+    4 480
+    5 480 3:4
+    6 480 1:2
+
+68: not found <-> STATUSSETTING_VIDEO_SUBMODE
+!! ONLY in STATUS !!
+    0 Video
+    1 TimeLapse
+    2 Video+Photo
+    3 Looping
+
+69: not found <-> STATUSSETTING_PHOTO_SUBMODE
+!! ONLY in STATUS !!
+    0 Single
+    1 Continuous
+    2 Night
+
+70: not found <-> STATUSSETTING_MULTISHOT_SUB_MODE
+!! ONLY in STATUS !!
+    0 Burst
+    1 Time Lapse
+    2 Night Lapse
+    0 Auto
+    1 2 Seconds
+    2 5 Seconds
+    3 10 Seconds
+    4 15 Seconds
+    5 20 Seconds
+    6 30 Seconds
+
+72: SETTING_LCD_DISPLAY <-> STATUSSETTING_LCD_DISPLAY
+    1 On
+    0 Off
+
+    1 On
+    0 Off
+
+73: SETTING_VIDEO_EXPOSURE <-> STATUSSETTING_VIDEO_EXPOSURE
+    0 Auto Mode
+    3 1/24
+    5 1/30
+    6 1/48
+    8 1/60
+    10 1/90
+    11 1/96
+    13 1/120
+    15 1/180
+    16 1/192
+    18 1/240
+    20 1/360
+    22 1/480
+
+    3 1/24
+    4 1/25
+    5 1/30
+    6 1/48
+    7 1/50
+    8 1/60
+    9 1/80
+    10 1/90
+    11 1/96
+    12 1/100
+    13 1/120
+    14 1/160
+    15 1/180
+    16 1/192
+    17 1/200
+    18 1/240
+    19 1/320
+    20 1/360
+    21 1/400
+    22 1/480
+    23 1/960
+
+74: SETTING_VIDEO_ISO_MODE <-> STATUSSETTING_VIDEO_ISO_MODE
+    0 Max
+    1 Lock
+
+    0 Max
+    1 Lock
+
+75: SETTING_PHOTO_ISO_MIN <-> STATUSSETTING_PHOTO_ISO_MIN
+    0 800
+    1 400
+    2 200
+    3 100
+
+    0 800
+    1 400
+    2 200
+    3 100
+
+76: SETTING_MULTISHOT_ISO_MIN <-> STATUSSETTING_MULTISHOT_ISO_MIN
+    0 800
+    1 400
+    2 200
+    3 100
+
+    0 800
+    1 400
+    2 200
+    3 100
+
+77: SETTING_PHOTO_WDR_PHOTO <-> not found
+!! ONLY in SETTING !!
+    1 On
+    0 Off
+
+78: SETTING_VIDEO_EIS <-> not found
+!! ONLY in SETTING !!
+    1 On
+    0 Off
+
+82: SETTING_PHOTO_RAW_PHOTO <-> not found
+!! ONLY in SETTING !!
+    1 On
+    0 Off
+
+83: SETTING_GPS_TAG <-> not found
+!! ONLY in SETTING !!
+    1 On
+    0 Off
+
+84: SETTING_CAMERA_SYSTEM_LANGUAGE <-> not found
+!! ONLY in SETTING !!
+    0 English
+    1 Chinese
+    2 German
+    3 Italian
+    4 Spanish
+    5 Japanese
+    6 French
+
+85: SETTING_VOICE_CONTROL_LANGUAGE <-> not found
+!! ONLY in SETTING !!
+    0 English - US
+    1 English - UK
+    2 English - AUS
+    3 German
+    4 French
+    5 Italian
+    6 Spanish
+    7 Spanish - NA
+    8 Chinese
+    9 Japanese
+
+86: SETTING_VOICE_CONTROL <-> not found
+!! ONLY in SETTING !!
+    1 On
+    0 Off
+
+91: SETTING_LEDS <-> not found
+!! ONLY in SETTING !!
+    0 Off
+    2 On
+    1 Front off
+
+93: SETTING_MULTISHOT_WDR_TIMELAPSE <-> not found
+!! ONLY in SETTING !!
+    1 On
+    0 Off
+
+94: SETTING_MULTISHOT_RAW_PHOTO_TIMELAPSE <-> not found
+!! ONLY in SETTING !!
+    1 On
+    0 Off
+
+97: SETTING_PHOTO_PROTUNE_SHUTTER <-> not found
+!! ONLY in SETTING !!
+    0 Auto
+    1 1/125
+    2 1/250
+    3 1/500
+    4 1/1000
+    5 1/2000
+
+98: SETTING_PHOTO_RAW_NIGHTPHOTO <-> not found
+!! ONLY in SETTING !!
+    1 On
+    0 Off
+
+99: SETTING_MULTISHOT_RAW_PHOTO_NIGHTLAPSE <-> not found
+!! ONLY in SETTING !!
+    1 On
+    0 Off

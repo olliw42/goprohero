@@ -19,24 +19,22 @@
 '''
 '''
   Json Generator
-  reads the (edited) .md files
+  reads the (edited) .md files fetched from KonradIT's github repository
   and converts it into Json ASCII files
   which can then be used in code generators
 '''
 
 import re
 
-camera = "Hero5"
 
-
-settings_inputfilename = camera.upper()+"-Commands - edited.md"
-settings_outputfilename = camera.lower()+"-settings-json.txt"
+settings_inputfilename = "HERO5-Commands - edited.md"
+settings_outputfilename = "settings-json.txt"
 
 status_inputfilename = "CameraStatus - edited.md"
-status_outputfilename = camera.lower()+"-status-json.txt"
+status_outputfilename = "status-json.txt"
 
-resolution_inputfilename = camera.upper()+"-Framerates-Resolutions - edited.md"
-resolution_outputfilename = camera.lower()+"-resolution-matrix-json.txt"
+resolution_inputfilename = "Framerates-Resolutions - edited.md"
+resolution_outputfilename = "resolution-matrix-json.txt"
 
 
 def cvtsettings():
