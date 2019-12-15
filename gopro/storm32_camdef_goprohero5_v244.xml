@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <mavlinkcamera>
-    <definition version="248">
+    <definition version="1">
         <model>STorM32 Hero5 Black</model>
         <vendor>www.olliw.eu</vendor>
     </definition>
@@ -27,6 +27,9 @@
                         <exclude>VID_MANUAAUDIOCO</exclude>
                         <exclude>VID_PHOTOINTER</exclude>
                         <exclude>VID_LOOPIINTER</exclude>
+                        <exclude>MUL_TIMELVIDEOIN</exclude>
+                        <exclude>MUL_TIMELPHOTOIN</exclude>
+                        <exclude>MUL_NIGHTPHOTOIN</exclude>
                         <exclude>VID_FORMAT</exclude>
                     </exclusions>
                 </option>
@@ -45,6 +48,9 @@
                         <exclude>PHO_RAWFORMA</exclude>
                         <exclude>PHO_NIGHTSHUTT</exclude>
                         <exclude>PHO_BURSTRATE</exclude>
+                        <exclude>MUL_TIMELVIDEOIN</exclude>
+                        <exclude>MUL_TIMELPHOTOIN</exclude>
+                        <exclude>MUL_NIGHTPHOTOIN</exclude>
                     </exclusions>
                 </option>
             </options>
@@ -319,6 +325,47 @@
                 <option name="30/2" value="6" />
                 <option name="30/3" value="7" />
                 <option name="30/6" value="8" />
+            </options>
+        </parameter>
+        <parameter name="MUL_TIMELVIDEOIN" type="uint32" default="0">
+            <description>TimeLapse Interval</description>
+            <options>
+                <option name="0.5 Sec" value="0" />
+                <option name="1 Sec" value="1" />
+                <option name="2 Sec" value="2" />
+                <option name="5 Sec" value="3" />
+                <option name="10 Sec" value="4" />
+                <option name="30 Sec" value="5" />
+                <option name="60 Sec" value="6" />
+            </options>
+        </parameter>
+        <parameter name="MUL_TIMELPHOTOIN" type="uint32" default="0">
+            <description>TimeLapse Interval</description>
+            <options>
+                <option name="0.5 Sec" value="0" />
+                <option name="1 Sec" value="1" />
+                <option name="2 Sec" value="2" />
+                <option name="5 Sec" value="5" />
+                <option name="10 Sec" value="10" />
+                <option name="30 Sec" value="30" />
+                <option name="60 Sec" value="60" />
+            </options>
+        </parameter>
+        <parameter name="MUL_NIGHTPHOTOIN" type="uint32" default="0">
+            <description>NightLapse Interval</description>
+            <options>
+                <option name="Auto" value="3601" />
+                <option name="4 Sec" value="4" />
+                <option name="5 Sec" value="5" />
+                <option name="10 Sec" value="10" />
+                <option name="15 Sec" value="15" />
+                <option name="20 Sec" value="20" />
+                <option name="30 Sec" value="30" />
+                <option name="1 Min" value="60" />
+                <option name="2 Min" value="120" />
+                <option name="5 Min" value="300" />
+                <option name="30 Min" value="1800" />
+                <option name="60 Min" value="3600" />
             </options>
         </parameter>
         <parameter name="VOI_CONTROL" type="bool" default="0">

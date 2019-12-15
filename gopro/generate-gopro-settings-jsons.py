@@ -26,7 +26,7 @@
 
 import re
 
-from generate_lib import *
+from generate_gopro_lib import *
 
 cameras = ["Hero5","Hero7"]
 
@@ -37,7 +37,7 @@ for camera in cameras:
 
     #print(json_strs[camera)    
     
-    F = open("gp-"+camera.lower()+"-settings-json.txt", "w")
+    F = open("gp-"+camera.lower()+"-settings-json.txt", "w", encoding='utf8') #encoding is important, since otherwise the ° lead to errors
     F.write(json_strs[camera])
     F.close()
     

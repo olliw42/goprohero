@@ -201,7 +201,7 @@ def generateSTorM32CamDefXMLForCamera(camera, version):
     xml = ''
     xml += '<?xml version="1.0" encoding="UTF-8" ?>\n'
     xml += '<mavlinkcamera>\n'
-    xml += '    <definition version="1">\n'
+    xml += '    <definition version="'+str(version)+'">\n'
     xml += '        <model>STorM32 '+camera+' Black</model>\n'
     xml += '        <vendor>www.olliw.eu</vendor>\n'
     xml += '    </definition>\n'

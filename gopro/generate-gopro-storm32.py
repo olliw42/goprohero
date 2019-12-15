@@ -27,7 +27,7 @@ import re
 import json
 import datetime
 
-from generate_lib import *
+from generate_gopro_lib import *
 
 
 
@@ -47,7 +47,7 @@ for camera in cameras:
 for i in range(len(cameras)):
     xml = generateSTorM32CamDefXMLForCamera(cameras[i], VERSIONS[i])
 
-    F = open(xmloutputfilenames[cameras[i]]+'_v'+str(VERSIONS[i])+'.xml', "w")
+    F = open(xmloutputfilenames[cameras[i]]+'_v'+str(VERSIONS[i])+'.xml', "w", encoding='utf8') #encoding is important, since otherwise the ° lead to errors
     F.write(xml)
     F.close() 
 
@@ -64,7 +64,7 @@ for i in range(len(cameras)):
     outputfilename += "-"+cameras[i].lower()+"-v"+str(VERSIONS[i])
 outputfilename += ".h"
     
-F = open(outputfilename, "w")
+F = open(outputfilename, "w", encoding='utf8') #encoding is important, since otherwise the ° lead to errors
 F.write(code_h)
 F.close() 
     
