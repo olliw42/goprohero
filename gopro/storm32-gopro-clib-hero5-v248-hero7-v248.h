@@ -1,4 +1,4 @@
-//generated 2019-12-15 23:43:39.539085
+//generated 2019-12-22 18:13:40.815585
 
 #define GOPRO_DBG(x)
 
@@ -165,7 +165,7 @@ const uint16_t GoProHero5Setting_u16[MAVCAMERA_PARAMETER_ZAHL_GOPROHERO5] = {
 
 // MAVCAMERA PARAMETERS
 
-#define MAVCAMERA_PARAMETER_ZAHL_GOPROHERO7  44
+#define MAVCAMERA_PARAMETER_ZAHL_GOPROHERO7  45
 
 typedef struct {
   uint16_t cam_mode;
@@ -178,7 +178,8 @@ typedef struct {
   uint16_t VideoShortClip;        // 107
   uint16_t VideoProtune;          // 10
   uint16_t VideoShutter;          // 73
-  uint16_t VideoEvComp;           // 102
+  uint16_t VideoEvComp;           // 15
+  uint16_t VideoIsoMin;           // 102
   uint16_t VideoIsoMax;           // 13
   uint16_t VideoWhiteBalance;     // 11
   uint16_t VideoSharpness;        // 14
@@ -227,6 +228,7 @@ const tMavCameraSetupParameter MavCameraParameters_GoProHero7[MAVCAMERA_PARAMETE
   { (uint16_t*)&_mavcameraparams_goprohero7.VideoProtune,          MAV_PARAM_TYPE_UINT16,  "VID_PROTUNE" },
   { (uint16_t*)&_mavcameraparams_goprohero7.VideoShutter,          MAV_PARAM_TYPE_UINT16,  "VID_SHUTTER" },
   { (uint16_t*)&_mavcameraparams_goprohero7.VideoEvComp,           MAV_PARAM_TYPE_UINT16,  "VID_EVCOMP" },
+  { (uint16_t*)&_mavcameraparams_goprohero7.VideoIsoMin,           MAV_PARAM_TYPE_UINT16,  "VID_ISOMIN" },
   { (uint16_t*)&_mavcameraparams_goprohero7.VideoIsoMax,           MAV_PARAM_TYPE_UINT16,  "VID_ISOMAX" },
   { (uint16_t*)&_mavcameraparams_goprohero7.VideoWhiteBalance,     MAV_PARAM_TYPE_UINT16,  "VID_WHITEBALAN" },
   { (uint16_t*)&_mavcameraparams_goprohero7.VideoSharpness,        MAV_PARAM_TYPE_UINT16,  "VID_SHARPNESS" },
@@ -269,6 +271,7 @@ void goprohero7_default_parameters(void)
   _mavcameraparams_goprohero7.VideoAspectRatio = 1;
   _mavcameraparams_goprohero7.VideoResolution = 9;
   _mavcameraparams_goprohero7.VideoFps = 5;
+  _mavcameraparams_goprohero7.VideoEvComp = 4;
   _mavcameraparams_goprohero7.VideoIsoMax = 1;
   _mavcameraparams_goprohero7.VideoRawAudio = 3;
   _mavcameraparams_goprohero7.VideoMics = 2;
@@ -285,16 +288,16 @@ void goprohero7_default_parameters(void)
 
 const char* GoProHero7Setting_str[MAVCAMERA_PARAMETER_ZAHL_GOPROHERO7] = {
   "",
-  "108","2","3","4","78","8","107","10","73","102","13","11","14","12","81","80","17","109","82","105",
-  "21","97","26","75","24","22","25","23","86","104","85","87","91","54","89","59","112","51","88","83","84",
-  "57","106",
+  "108","2","3","4","78","8","107","10","73","15","102","13","11","14","12","81","80","17","109","82",
+  "105","21","97","26","75","24","22","25","23","86","104","85","87","91","54","89","59","112","51","88","83",
+  "84","57","106",
 };
 
 const uint16_t GoProHero7Setting_u16[MAVCAMERA_PARAMETER_ZAHL_GOPROHERO7] = {
   UINT16_MAX,
-  108,2,3,4,78,8,107,10,73,102,13,11,14,12,81,80,17,109,82,105,
-  21,97,26,75,24,22,25,23,86,104,85,87,91,54,89,59,112,51,88,83,84,
-  57,106,
+  108,2,3,4,78,8,107,10,73,15,102,13,11,14,12,81,80,17,109,82,
+  105,21,97,26,75,24,22,25,23,86,104,85,87,91,54,89,59,112,51,88,83,
+  84,57,106,
 };
 
 
@@ -321,7 +324,7 @@ typedef enum {
   GOPRO_CMD_LOCATE_ON,                    // 15
   GOPRO_CMD_TAG,                          // 16
   GOPRO_CMD_SLEEP,                        // 17
-  GOPRO_CMD_ZOOM,
+  GOPRO_CMD_ZOOMRANGE,                    // 18
   GOPRO_CMD_MAX
 } GOPROCMDENUM;
 
@@ -334,7 +337,7 @@ const char* GoProHeroCommand[GOPRO_CMD_MAX] = {
   "system/locate?p=0", "system/locate?p=1",
   "storage/tag_moment",
   "system/sleep",
-  "digital_zoom?range_pcnt=",
+  "digital_zoom?range_pcnt=", //complete with zoom level 0...100
 };
 
 
@@ -578,6 +581,20 @@ GOPRO_DBG(MAV_PUTS("  gpC:");MAV_PUTS(s);)
 }
 
 
+void goprohero_ping(void)
+{
+  //compose string
+  char* s = (char*)_gopro.buf;
+  strcpy(s, "ping\n");
+  
+GOPRO_DBG(MAV_PUTS("  gpP:");MAV_PUTS(s);)
+
+  //send string and trigger receive
+  gopro_hal_putbuf(_gopro.buf, strlen(s));
+  gopro_receive_trigger();
+}
+
+
 void goprohero_getbattery(void)
 {
   //compose string
@@ -585,6 +602,22 @@ void goprohero_getbattery(void)
   strcpy(s, "battery2\n");
 
 GOPRO_DBG(MAV_PUTS("  gpGb2:");MAV_PUTS(s);)
+
+  //send string and trigger receive
+  gopro_hal_putbuf(_gopro.buf, strlen(s));
+  gopro_receive_trigger();
+}
+
+
+void goprohero_setzoomlevel(uint16_t zoom_level)
+{
+  //compose string
+  char* s = (char*)_gopro.buf;
+  strcpy(s, "setzoom");
+  strcat(s, utoBCD_s(zoom_level)); //strcat(s, GoProHeroCommand[GOPRO_CMD_ZOOMRANGE]);
+  strcat(s, "\n");
+  
+GOPRO_DBG(MAV_PUTS("  gpSzl:");MAV_PUTS(s);)
 
   //send string and trigger receive
   gopro_hal_putbuf(_gopro.buf, strlen(s));

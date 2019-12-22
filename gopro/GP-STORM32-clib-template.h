@@ -28,7 +28,7 @@ typedef enum {
   GOPRO_CMD_LOCATE_ON,                    // 15
   GOPRO_CMD_TAG,                          // 16
   GOPRO_CMD_SLEEP,                        // 17
-  GOPRO_CMD_ZOOM,
+  GOPRO_CMD_ZOOMRANGE,                    // 18
   GOPRO_CMD_MAX
 } GOPROCMDENUM;
 
@@ -41,7 +41,7 @@ const char* GoProHeroCommand[GOPRO_CMD_MAX] = {
   "system/locate?p=0", "system/locate?p=1",
   "storage/tag_moment",
   "system/sleep",
-  "digital_zoom?range_pcnt=",
+  "digital_zoom?range_pcnt=", //complete with zoom level 0...100
 };
 
 
@@ -285,6 +285,20 @@ GOPRO_DBG(MAV_PUTS("  gpC:");MAV_PUTS(s);)
 }
 
 
+void goprohero_ping(void)
+{
+  //compose string
+  char* s = (char*)_gopro.buf;
+  strcpy(s, "ping\n");
+  
+GOPRO_DBG(MAV_PUTS("  gpP:");MAV_PUTS(s);)
+
+  //send string and trigger receive
+  gopro_hal_putbuf(_gopro.buf, strlen(s));
+  gopro_receive_trigger();
+}
+
+
 void goprohero_getbattery(void)
 {
   //compose string
@@ -292,6 +306,22 @@ void goprohero_getbattery(void)
   strcpy(s, "battery2\n");
 
 GOPRO_DBG(MAV_PUTS("  gpGb2:");MAV_PUTS(s);)
+
+  //send string and trigger receive
+  gopro_hal_putbuf(_gopro.buf, strlen(s));
+  gopro_receive_trigger();
+}
+
+
+void goprohero_setzoomlevel(uint16_t zoom_level)
+{
+  //compose string
+  char* s = (char*)_gopro.buf;
+  strcpy(s, "setzoom");
+  strcat(s, utoBCD_s(zoom_level)); //strcat(s, GoProHeroCommand[GOPRO_CMD_ZOOMRANGE]);
+  strcat(s, "\n");
+  
+GOPRO_DBG(MAV_PUTS("  gpSzl:");MAV_PUTS(s);)
 
   //send string and trigger receive
   gopro_hal_putbuf(_gopro.buf, strlen(s));

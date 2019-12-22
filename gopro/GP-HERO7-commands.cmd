@@ -2,12 +2,28 @@
 ! GoPro HERO7 Black
 ! Firmware Version HD7.01.01.80.00
 ! I went through all settings, both in the App and the camera
+! 16.12.2019
+
+!Video submodes:
+!  Video                mode=0, submode=0
+!  Looping              mode=0, submode=3
+
+!Photo submodes:
+!  Photo                mode=1, submode=1
+!  Burst                mode=2, submode=0
+!  Night                mode=1, submode=2
+
+!Timelapse submodes:
+!  Time Warp Video      mode=0, submode=4
+!  Time Lapse Video     mode=0, submode=1
+!  Time Lapse Photo     mode=1, submode=1
+!  Night Lapse Photo    mode=2, submode=2
+
+
 
 
 #### Video
-
-?Video Video oder Videoschleife
-?------------
+?--------------------
 
 ##### Aspect Ratio     ?Bildformat
 * 4:3     108/0
@@ -16,14 +32,14 @@
 default = 1
 
 ##### Resolution  ?Auflösung
-* 4K              2/1           $if Format = 1
-* 4K 4:3          2/18          $if Format = 0
-* 2.7K            2/4           $if Format = 1
-* 2.7K 4:3        2/6           $if Format = 0
-* 1440            2/7           $if Format = 0
-* 1080            2/9           $if Format = 1
-* 960             2/10          $if Format = 0
-* 720             2/12          $if Format = 1
+* 4K              2/1           $if Video Aspect Ratio = 16:9
+* 4K 4:3          2/18          $if Video Aspect Ratio = 4:3
+* 2.7K            2/4           $if Video Aspect Ratio = 16:9
+* 2.7K 4:3        2/6           $if Video Aspect Ratio = 4:3
+* 1440            2/7           $if Video Aspect Ratio = 4:3
+* 1080            2/9           $if Video Aspect Ratio = 16:9
+* 960             2/10          $if Video Aspect Ratio = 4:3
+* 720             2/12          $if Video Aspect Ratio = 16:9
 
 default = 9
 
@@ -84,8 +100,8 @@ default = 0
 
 ?wenn Protune ein:
 
-##### Shutter  $if Protune = 1
-* Auto    73/0    
+##### Shutter       $if Protune = 1
+* Auto    73/0
 * 1/60    73/8
 * 1/120   73/13
 * 1/240   73/18
@@ -94,7 +110,7 @@ default = 0
 
 default = 0
 
-##### EV Comp  $if Protune = 1
+##### EV Comp       $if Protune = 1
 * -2.0    15/8
 * -1.5    15/7
 * -1.0    15/6
@@ -107,7 +123,7 @@ default = 0
 
 default = 4
 
-#####ISO Min  $if Protune = 1
+##### ISO Min        $if Protune = 1
 * 100     102/8
 * 200     102/7
 * 400     102/2
@@ -118,7 +134,7 @@ default = 4
 
 default = 0
 
-##### ISO Max     $if Protune = 1
+##### ISO Max       $if Protune = 1
 * 6400    13/0
 * 3200    13/3
 * 1600    13/1
@@ -144,20 +160,20 @@ default = 1
 
 default = 0
 
-##### Sharpness   $if Protune = 1
+##### Sharpness     $if Protune = 1
 * High        14/0
 * Medium      14/1
 * Low         14/2
 
 default = 0
 
-##### Color    $if Protune = 1
+##### Color         $if Protune = 1
 * GoPro       12/0
 * Flat        12/1
 
 default = 0
 
-##### RAW Audio    $if Protune = 1
+##### RAW Audio     $if Protune = 1
 * Off         81/3
 * Low         81/0
 * Medium      81/1
@@ -165,7 +181,7 @@ default = 0
 
 default = 3
 
-##### Mics   $if Protune = 1
+##### Mics          $if Protune = 1
 * Auto        80/2
 * Wind        80/1
 * Stereo      80/0
@@ -176,8 +192,6 @@ default = 2
 
 
 #### Photo
-
-?Photo Foto
 ?--------------------
 
 ##### FOV             ?Megapixel
@@ -213,8 +227,8 @@ default = 0
 default = 0
 
 ?wenn Protune EIN:
- 
-##### Shutter   $if Protune = 1
+
+##### Shutter           $if Protune = 1
 * Auto        97/0
 * 1/125       97/1
 * 1/250       97/2
@@ -224,7 +238,7 @@ default = 0
 
 default = 0
 
-##### EV Comp     $if Protune = 1
+##### EV Comp           $if Protune = 1
 * -2.0        26/8
 * -1.5        26/7
 * -1.0        26/6
@@ -237,7 +251,7 @@ default = 0
 
 default = 4
 
-##### ISO Min   $if Protune = 1
+##### ISO Min           $if Protune = 1
 * 100         75/3
 * 200         75/2
 * 400         75/1
@@ -247,7 +261,7 @@ default = 4
 
 default = 3
 
-##### ISO Max         $if Protune = 1
+##### ISO Max           $if Protune = 1
 * 3200        24/5
 * 1600        24/4
 * 800         24/0
@@ -272,14 +286,14 @@ default = 5
 
 default = 0
 
-##### Sharpness        $if Protune = 1
+##### Sharpness         $if Protune = 1
 * High        25/0
 * Medium      25/1
 * Low         25/2
 
 default = 0
 
-##### Color      $if Protune = 1
+##### Color             $if Protune = 1
 * GoPro       23/0
 * Flat        23/1
 
@@ -287,8 +301,8 @@ default = 0
 
 
 /////
-Photo Serienaufnahme
---------------------
+#### TimeLapse
+?--------------------
 
 Rate
 
@@ -636,7 +650,7 @@ Auto-Sperre   ???????  Auto Screen Lock ?????  this exist in the App, but not cl
 aus         103/3
 ein         103/5
 
-default = 
+default =
 /////
 
 ##### GPS

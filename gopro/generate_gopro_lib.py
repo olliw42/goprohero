@@ -35,19 +35,21 @@ def cvtSettingsToJsonStr(camera):
     md = F.read()
     F.close()
 
-    print(md)
+    #print(md)
 
     mdList = md.split('\n')
 
     mode = ''
     setting = ''
+    cur_setting_name = ''
     last_setting_nr = ''
     last_setting_default_nr = ''
     comment_on = False
 
     json_str = ''
-
-    print(mdList)
+    conditions_json_str = ''
+    
+    #print(mdList)
 
     print('---------------------------')
 
@@ -67,13 +69,27 @@ def cvtSettingsToJsonStr(camera):
         if comment_on or comment_match:
             continue
 
-        #get condition after '$'
+        #get condition after '$if'
         # TODO
-        line = re.sub(r'(.?)\$.*', '', line)
-    
+        condition = ''
+        #cond_match = re.match(r'(.?) \$if(.*)', line) # match $if
+        '''
+        cond_match = re.match(r'[\w\s]+? \$(.*)', line) # match $if
+        print("CONDTEST")
+        if cond_match:
+            condition = cond_match.group(1)
+            print( "COND:", cond)
+        '''
+        if '$if' in line:
+            p = line.split('$if')
+            condition = p[1]
+            #print( "COND:", condition)
+        
+        line = re.sub(r'(.?)\$.*', '', line) # remove condition
+            
         line = line.lstrip()
         if line == '': continue
-        print("-> ", line)
+        #print("-> ", line)
         
         #extract a mode
         mode_match = re.match(r'###?#? (\w+)', line) # match ##, ###, ####
@@ -89,7 +105,7 @@ def cvtSettingsToJsonStr(camera):
                 mode = ''
             #print(line)
             #print(m)
-            print(mode)
+            #print(mode)
             continue
 
         #extract a setting
@@ -101,7 +117,7 @@ def cvtSettingsToJsonStr(camera):
             else:
                 setting_name = s
 
-            print(setting_name)
+            #print(setting_name)
 
             if last_setting_nr != '':
                 json_str = json_str[:-2] +'\n'
@@ -118,6 +134,8 @@ def cvtSettingsToJsonStr(camera):
             json_str += '    "'+header+'": {\n'
             json_str += '        "name": "'+setting_name+'",\n'
             json_str += '        "options": {\n'
+            
+            cur_setting_name = setting_name
             continue
 
         #extract a setting option
@@ -130,10 +148,14 @@ def cvtSettingsToJsonStr(camera):
             if option_name.lower() == 'on': option_name = 'On'
             if option_name.lower() == 'off': option_name = 'Off'
 
-            print(header,setting,"=",option_name, setting_nr, option_nr)
+            #print(header,setting,"=",option_name, setting_nr, option_nr)
 
             json_str += '            "'+option_name+'": '+option_nr+',\n'
             last_setting_nr = setting_nr
+            
+            if condition != '':
+                conditions_json_str += '        ["'+cur_setting_name+'", "'+option_name+'", "'+condition.strip()+'"],\n'
+                
 
         default_match = re.match(r'default *= *(\d+)', line) # match default =
         if default_match:
@@ -149,7 +171,10 @@ def cvtSettingsToJsonStr(camera):
             json_str += '        "default": 0\n'
         json_str += '    },\n'
  
-    json_str = '{\n' + json_str[:-2] + '\n}\n'
+    if conditions_json_str != '':
+        json_str = '{\n    "CONDITIONS": [\n' + conditions_json_str[:-2] + '\n    ],\n' + json_str[:-2] + '\n}\n'
+    else:    
+        json_str = '{\n' + json_str[:-2] + '\n}\n'
 
     #print(json_str)
 
@@ -162,7 +187,7 @@ Creates a MAVLink-parameter name form the human readable name of the setting
 '''
 def make_mavlink_name(name):
     l = name.split(' ')
-    print(l)
+    #print(l)
     n = ''
     
     if len(l) == 1:
@@ -196,6 +221,14 @@ def generateSTorM32CamDefXMLForCamera(camera, version):
     json_str = F.read()
     F.close() 
     settings_dict = json.loads(json_str)
+    
+    conditions_list = []
+    if "CONDITIONS" in settings_dict:
+        conditions_list = settings_dict["CONDITIONS"]
+        del settings_dict["CONDITIONS"]
+        #print(conditions_list)
+    
+    print('---------------------------')
     
     # uses the original json/dict, i.e. settings_dict
     xml = ''
@@ -257,7 +290,31 @@ def generateSTorM32CamDefXMLForCamera(camera, version):
         xml += '            <options>\n'
         #-- normal parameter
         for option, option_nr in options['options'].items():
-            xml += '                <option name="'+option+'" value="'+str(option_nr)+'" />\n'
+            # check first if this option has some <parameterranges> to respect
+            parameterranges = []
+            for condition in conditions_list:
+                if options['name'] in condition[2] and option in condition[2]:
+                    parameterranges.append(condition)
+            # now we now
+            if parameterranges == []:
+                xml += '                <option name="'+option+'" value="'+str(option_nr)+'" />\n'
+            else:
+                xml += '                <option name="'+option+'" value="'+str(option_nr)+'">\n'
+                xml += '                    <parameterranges>\n'
+                csetting = parameterranges[0][0]
+                xml += '                        <parameterrange parameter="'+ make_mavlink_name(csetting)+'">\n'
+                csetting = 'SETTING_'+csetting.upper().replace(' ','_')
+                for condition in parameterranges:
+                    coptions = settings_dict[csetting]['options']
+                    if condition[1] in coptions:
+                        xml += '                            <roption name="'+condition[1]
+                        xml += '" value="'+str(coptions[condition[1]])+'" />\n'
+                    else:
+                        rpint('SHIIIIIIIIIIIIIITTTT')
+                xml += '                        </parameterrange>\n'
+                xml += '                    </parameterranges>\n'
+                xml += '                </option>\n'
+            
         #-- closing footer for unit32 parameter
         xml += '            </options>\n'
         xml += '        </parameter>\n'
@@ -280,6 +337,9 @@ def generateSTorM32LibForCamera(camera, version):
     json_str = F.read()
     F.close() 
     settings_dict = json.loads(json_str)
+    
+    if "CONDITIONS" in settings_dict:
+        del settings_dict["CONDITIONS"]
     
     F = open("GP-STORM32-clib-template-cam.h", "r")
     code_template_h = F.read()

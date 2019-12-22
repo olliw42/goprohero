@@ -19,7 +19,7 @@
 #define GOPRO_SSID "GP........"      // Wifi name (SSID)videoon;
 #define GOPRO_PASS ".........."      // WiFi password
 
-#define VERSION_STR "(c) olliw.eu, v2019-12-15"
+#define VERSION_STR "(c) olliw.eu, v2019-12-21"
 
 
 //for debugging
@@ -123,6 +123,7 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
           int16_t res = gopro.testConnectionToClient();
           serialPrintClose(res);
       }
+      
       //not currently used by STorM32
       if( cli_bufiscmd("reset") ) {
           serialPrintClose(true);
@@ -176,9 +177,16 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
           int16_t res = gopro.sendCmd(GOPRO_CMD_SUBMODE_PHOTO_SINGLE);
           serialPrintClose(res);
       }
-
+      //not currently used by STorM32
       if( cli_bufiscmdstr("cmd",str) ) {
           int16_t res = gopro.sendCmdStr(String(str));
+          serialPrintClose(res);
+      }
+
+      if( cli_bufissetcmds16("setzoom",&value1) ) {
+          String cmd_str = GOPRO_CMD_STR[GOPRO_CMD_ZOOMRANGE]; //"digital_zoom?range_pcnt="
+          cmd_str += String(value1);
+          int16_t res = gopro.sendCmdStr(cmd_str);
           serialPrintClose(res);
       }
 

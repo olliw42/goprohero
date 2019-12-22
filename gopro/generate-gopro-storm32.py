@@ -33,25 +33,24 @@ from generate_gopro_lib import *
 
 VERSIONS = [248,248]
 
-cameras = ["Hero5","Hero7"]
+cameras = ["Hero5","Hero7"]   #ONLY for GoPro cameras !!!!
 
 
 
 ''' generate XML files '''
-
-xmloutputfilenames = {}
-for camera in cameras:
-    xmloutputfilenames[camera] = "storm32_camdef_gopro"+camera.lower() #extension will be added
-
    
 for i in range(len(cameras)):
-    xml = generateSTorM32CamDefXMLForCamera(cameras[i], VERSIONS[i])
-
-    F = open(xmloutputfilenames[cameras[i]]+'_v'+str(VERSIONS[i])+'.xml', "w", encoding='utf8') #encoding is important, since otherwise the ° lead to errors
+    camera = cameras[i]
+    version = VERSIONS[i]
+    
+    xml = generateSTorM32CamDefXMLForCamera(camera, version)
+    
+    xmlfilename = 'storm32_camdef_gopro'+camera.lower()+'_v'+str(version)+'.xml'
+    F = open(xmlfilename, "w", encoding='utf8') #encoding is important, since otherwise the ° lead to errors
     F.write(xml)
     F.close() 
 
-
+    
 
 ''' generate C code file '''
     

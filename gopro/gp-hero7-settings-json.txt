@@ -1,4 +1,14 @@
 {
+    "CONDITIONS": [
+        ["Video Resolution", "4K", "Video Aspect Ratio = 16:9"],
+        ["Video Resolution", "4K 4:3", "Video Aspect Ratio = 4:3"],
+        ["Video Resolution", "2.7K", "Video Aspect Ratio = 16:9"],
+        ["Video Resolution", "2.7K 4:3", "Video Aspect Ratio = 4:3"],
+        ["Video Resolution", "1440", "Video Aspect Ratio = 4:3"],
+        ["Video Resolution", "1080", "Video Aspect Ratio = 16:9"],
+        ["Video Resolution", "960", "Video Aspect Ratio = 4:3"],
+        ["Video Resolution", "720", "Video Aspect Ratio = 16:9"]
+    ],
     "SETTING_VIDEO_ASPECT_RATIO": {
         "name": "Video Aspect Ratio",
         "options": {
@@ -110,7 +120,14 @@
             "+0.5": 3,
             "+1.0": 2,
             "+1.5": 1,
-            "+2.0": 0,
+            "+2.0": 0
+        },
+        "nr": 15,
+        "default": 4
+    },
+    "SETTING_VIDEO_ISO_MIN": {
+        "name": "Video ISO Min",
+        "options": {
             "100": 8,
             "200": 7,
             "400": 2,

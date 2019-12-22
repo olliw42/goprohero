@@ -61,6 +61,7 @@ typedef enum {
   GOPRO_CMD_LOCATE_ON,                    // 15
   GOPRO_CMD_TAG,                          // 16
   GOPRO_CMD_SLEEP,                        // 17
+  GOPRO_CMD_ZOOMRANGE,                    // 18
   GOPRO_CMD_MAX
 } GOPROCMDENUM;
 
@@ -73,6 +74,7 @@ const char* GOPRO_CMD_STR[GOPRO_CMD_MAX] = {
   "system/locate?p=0", "system/locate?p=1",
   "storage/tag_moment", 
   "system/sleep", 
+  "digital_zoom?range_pcnt=",
 };
 
 
