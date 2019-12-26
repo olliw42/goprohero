@@ -76,7 +76,8 @@ class owGoPro: public owGoProClass  //if desired also the owGoProAdvancedClass c
     bool extractSettingValueFromResponse(const char* no, String& value);
     bool extractModifiedSettingsFromResponse(void);
     bool extractModifiedSettingsFromResponse(const char* no, String& modified_settings, String& settings_current);
-    
+
+    void extractStatusFromResponse(String& status_str);
     bool extractStatusValueFromResponse(const char* no, String& value);
 
     void debugOn(void){ _debug_previous = _debug; _debug = true; };
@@ -685,6 +686,18 @@ bool owGoPro::extractModifiedSettingsFromResponse(const char* no, String& modifi
 }
 
 
+void owGoPro::extractStatusFromResponse(String& status_str)
+{
+    //extract status json
+    int status_pos = _response.indexOf("status");
+    int status_start = _response.indexOf("{", status_pos+1);
+    int status_end = _response.indexOf("}", status_start+1);
+    _response.setCharAt(status_end, ','); //this is needed to get the last value right
+
+    status_str = _response.substring(status_start, status_end+2);
+}
+
+
 bool owGoPro::extractStatusValueFromResponse(const char* no, String& value)
 {
     //extract status json
@@ -704,5 +717,3 @@ bool owGoPro::extractStatusValueFromResponse(const char* no, String& value)
     value = _response.substring(value_start+1, value_end);
     return true;
 }
-
-

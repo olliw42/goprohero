@@ -16,13 +16,13 @@
    
   For the GNU General Public License see <http://www.gnu.org/licenses/>.
    
-  This program makes use of the tremendous work of KonradIT
+  This program profited of the tremendous work of KonradIT
   see <https://github.com/KonradIT/goprowifihack>.
 */
 /*
   C++ class owGoProClass
   
-  version 2019-07-21
+  version 2019-12-26
 */
 
 
@@ -93,6 +93,8 @@ typedef enum {
   GOPRO_STATUS_MODE = 43,
   GOPRO_STATUS_SUBMODE = 44,
   GOPRO_STATUS_MEMORY_AVAILABLE = 54,
+  GOPRO_STATUS_BATTERY = 70,
+  GOPRO_STATUS_ZOOM = 75, //hero5 doesn't have it
 } GOPROSTATUSENUM;
 
 typedef enum {

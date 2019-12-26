@@ -19,7 +19,7 @@
 #define GOPRO_SSID "GP........"      // Wifi name (SSID)videoon;
 #define GOPRO_PASS ".........."      // WiFi password
 
-#define VERSION_STR "(c) olliw.eu, v2019-12-21"
+#define VERSION_STR "(c) olliw.eu, v2019-12-26"
 
 
 //for debugging
@@ -99,6 +99,8 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
 
     if( cli_isenter(c) ){
       done = true;
+      //ATTENTION: shorter names which come before longer ones eat them away!
+      // E.g.: 'getall' must come before 'get', since if 'get' comes first it would eat also 'getll'
 
       if( cli_bufiscmd("info") )            {gopro.debugOn();gopro.getInfo();gopro.debugRestore();}
       if( cli_bufiscmd("status") )          {gopro.debugOn();gopro.getStatus();gopro.debugRestore();}
@@ -282,6 +284,42 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
       }
 
       //not currently used by STorM32
+      if( cli_bufiscmd("statall") ) {
+          int16_t res = gopro.getStatus();
+          if( res == true ) {
+            String sdcard_inserted, memory_available;
+            String battery_available, battery_level, battery_percentage;
+            String zoom_level;
+            String mode_str, submode, recording;
+            if( !gopro.extractStatusValueFromResponse("33", sdcard_inserted) ||
+                !gopro.extractStatusValueFromResponse("54", memory_available) ||
+                !gopro.extractStatusValueFromResponse("1", battery_available) ||
+                !gopro.extractStatusValueFromResponse("2", battery_level) ||
+                !gopro.extractStatusValueFromResponse("70", battery_percentage) ||
+                !gopro.extractStatusValueFromResponse("43", mode_str) ||
+                !gopro.extractStatusValueFromResponse("44", submode) ||
+                !gopro.extractStatusValueFromResponse("8", recording) ) {
+              res = GOPRO_RESULT_UNKNOWN; //unknown setting no //should never happen
+            } else {
+              Serial.print(sdcard_inserted); Serial.print(',');
+              Serial.print(memory_available); Serial.print(',');
+              Serial.print(battery_available); Serial.print(',');
+              Serial.print(battery_level); Serial.print(',');
+              Serial.print(battery_percentage); Serial.print(',');
+              if( gopro.extractStatusValueFromResponse("75", zoom_level) ) { //hero5 doesn't have it
+                Serial.print(zoom_level); Serial.print(',');
+              } else {
+                Serial.print("0,");
+              }
+              Serial.print(mode_str); Serial.print(',');
+              Serial.print(submode); Serial.print(',');
+              Serial.print(recording);
+            }
+          }
+          serialPrintClose(res);
+      }
+
+      //not currently used by STorM32
       if( cli_bufiscmdstr("stat",str) ) {
           int16_t res = gopro.getStatus();
           if( res == true ) {
@@ -302,8 +340,7 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
             if( !gopro.extractStatusValueFromResponse("33", sdcard_inserted) || !gopro.extractStatusValueFromResponse("54", memory_available) ) {
               res = GOPRO_RESULT_UNKNOWN; //unknown setting no //should never happen
             } else {
-              Serial.print(sdcard_inserted);
-              Serial.print(',');
+              Serial.print(sdcard_inserted); Serial.print(',');
               Serial.print(memory_available);
             }
           }
@@ -319,16 +356,15 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
                 !gopro.extractStatusValueFromResponse("70", battery_percentage)) {
               res = GOPRO_RESULT_UNKNOWN; //unknown setting no //should never happen
             } else {
-              Serial.print(battery_available);
-              Serial.print(',');
-              Serial.print(battery_level);
-              Serial.print(',');
+              Serial.print(battery_available); Serial.print(',');
+              Serial.print(battery_level); Serial.print(',');
               Serial.print(battery_percentage);
             }
           }
           serialPrintClose(res);
       }
-      
+
+      //deprecated, superseeded by 'battery2'
       if( cli_bufiscmd("battery") ) {
           int16_t res = gopro.getStatus();
           if( res == true ) {
@@ -336,9 +372,22 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
             if( !gopro.extractStatusValueFromResponse("1", battery_available) || !gopro.extractStatusValueFromResponse("2", battery_level) ) {
               res = GOPRO_RESULT_UNKNOWN; //unknown setting no //should never happen
             } else {
-              Serial.print(battery_available);
-              Serial.print(',');
+              Serial.print(battery_available); Serial.print(',');
               Serial.print(battery_level);
+            }
+          }
+          serialPrintClose(res);
+      }
+
+      //not currently used by STorM32
+      if( cli_bufiscmd("zoom") ) {
+          int16_t res = gopro.getStatus();
+          if( res == true ) {
+            String zoom_level;
+            if( !gopro.extractStatusValueFromResponse("75", zoom_level) ) {
+              res = GOPRO_RESULT_UNKNOWN; //unknown setting no // happens for hero5, make it return 'u', which is good
+            } else {
+              Serial.print(zoom_level);
             }
           }
           serialPrintClose(res);
@@ -349,14 +398,13 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
           int16_t res = gopro.getStatus();
           if( res == true ) {
             String mode_str, submode, recording;
-            if( !gopro.extractStatusValueFromResponse("43", mode_str) || !gopro.extractStatusValueFromResponse("44", submode) || 
+            if( !gopro.extractStatusValueFromResponse("43", mode_str) || 
+                !gopro.extractStatusValueFromResponse("44", submode) || 
                 !gopro.extractStatusValueFromResponse("8", recording) ) {
               res = GOPRO_RESULT_UNKNOWN; //unknown setting no //should never happen
             } else {
-              Serial.print(mode_str);
-              Serial.print(',');
-              Serial.print(submode);
-              Serial.print(',');
+              Serial.print(mode_str); Serial.print(',');
+              Serial.print(submode); Serial.print(',');
               Serial.print(recording);
             }
           }
@@ -393,6 +441,7 @@ void loop()
     //if( res != true ) return;
 
     String settings;
+    //gopro.extractStatusFromResponse(settings);
     gopro.extractSettingsFromResponse(settings);
 
     if( (settings_previous != settings) && (settings_previous.length() > 0) ){
