@@ -30,6 +30,7 @@ import datetime
 from generate_gopro_lib import *
 
 
+STORM32VERSION = 249
 
 VERSIONS = [248,248]
 
@@ -61,9 +62,10 @@ code_h = generateSTorM32Lib(cameras, VERSIONS)
 outputfilename = codeoutputfilename
 for i in range(len(cameras)):
     outputfilename += "-"+cameras[i].lower()+"-v"+str(VERSIONS[i])
-outputfilename += ".h"
+outputfilename += "--v"+str(STORM32VERSION)+".h"
     
 F = open(outputfilename, "w", encoding='utf8') #encoding is important, since otherwise the ° lead to errors
+F.write("//STorM32 version v"+str(STORM32VERSION)+"\n")
 F.write(code_h)
 F.close() 
     

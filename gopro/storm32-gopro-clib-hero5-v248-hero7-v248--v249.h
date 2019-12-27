@@ -1,4 +1,5 @@
-//generated 2019-12-22 18:13:40.815585
+//STorM32 version v249
+//generated 2019-12-27 18:22:51.508740
 
 #define GOPRO_DBG(x)
 
@@ -23,48 +24,48 @@
 
 typedef struct {
   uint16_t cam_mode;
-  uint16_t VideoResolution;          // 2
-  uint16_t VideoFrameRate;           // 3
-  uint16_t VideoFov;                 // 4
-  uint16_t VideoColor;               // 12
-  uint16_t VideoWhiteBalance;        // 11
-  uint16_t VideoIso;                 // 13
-  uint16_t VideoShutter;             // 73
-  uint16_t VideoEvComp;              // 15
-  uint16_t VideoSharpness;           // 14
-  uint16_t VideoRawAudioTrack;       // 81
-  uint16_t VideoProtune;             // 10
-  uint16_t VideoEis;                 // 78
-  uint16_t VideoAutoLowLight;        // 8
-  uint16_t VideoManualAudioControl;  // 80
-  uint16_t VideoPhotoInterval;       // 7
-  uint16_t VideoLoopingInterval;     // 6
-  uint16_t PhotoFov;                 // 17
-  uint16_t PhotoColor;               // 23
-  uint16_t PhotoWhiteBalance;        // 22
-  uint16_t PhotoIsoMin;              // 75
-  uint16_t PhotoIsoMax;              // 24
-  uint16_t PhotoShutter;             // 97
-  uint16_t PhotoEvComp;              // 26
-  uint16_t PhotoSharpness;           // 25
-  uint16_t PhotoProtune;             // 21
-  uint16_t PhotoWdr;                 // 77
-  uint16_t PhotoRawFormat;           // 82
-  uint16_t PhotoNightShutter;        // 19
-  uint16_t PhotoBurstRate;           // 29
-  uint16_t VoiceControl;             // 86
-  uint16_t VoiceControlLanguage;     // 85
-  uint16_t BeepVolume;               // 87
-  uint16_t Led;                      // 91
-  uint16_t Quickcapture;             // 54
-  uint16_t DefaultMode;              // 89
-  uint16_t AutoOff;                  // 59
-  uint16_t Screensaver;              // 51
-  uint16_t Brightness;               // 88
-  uint16_t AutoRotation;             // 52
-  uint16_t Gps;                      // 83
-  uint16_t Language;                 // 84
-  uint16_t VideoFormat;              // 57
+  uint16_t VideoResolution;          //1   no = 2
+  uint16_t VideoFrameRate;           //2   no = 3
+  uint16_t VideoFov;                 //3   no = 4
+  uint16_t VideoColor;               //4   no = 12
+  uint16_t VideoWhiteBalance;        //5   no = 11
+  uint16_t VideoIso;                 //6   no = 13
+  uint16_t VideoShutter;             //7   no = 73
+  uint16_t VideoEvComp;              //8   no = 15
+  uint16_t VideoSharpness;           //9   no = 14
+  uint16_t VideoRawAudioTrack;       //10  no = 81
+  uint16_t VideoProtune;             //11  no = 10
+  uint16_t VideoEis;                 //12  no = 78
+  uint16_t VideoAutoLowLight;        //13  no = 8
+  uint16_t VideoManualAudioControl;  //14  no = 80
+  uint16_t VideoPhotoInterval;       //15  no = 7
+  uint16_t VideoLoopingInterval;     //16  no = 6
+  uint16_t PhotoFov;                 //17  no = 17
+  uint16_t PhotoColor;               //18  no = 23
+  uint16_t PhotoWhiteBalance;        //19  no = 22
+  uint16_t PhotoIsoMin;              //20  no = 75
+  uint16_t PhotoIsoMax;              //21  no = 24
+  uint16_t PhotoShutter;             //22  no = 97
+  uint16_t PhotoEvComp;              //23  no = 26
+  uint16_t PhotoSharpness;           //24  no = 25
+  uint16_t PhotoProtune;             //25  no = 21
+  uint16_t PhotoWdr;                 //26  no = 77
+  uint16_t PhotoRawFormat;           //27  no = 82
+  uint16_t PhotoNightShutter;        //28  no = 19
+  uint16_t PhotoBurstRate;           //29  no = 29
+  uint16_t VoiceControl;             //30  no = 86
+  uint16_t VoiceControlLanguage;     //31  no = 85
+  uint16_t BeepVolume;               //32  no = 87
+  uint16_t Led;                      //33  no = 91
+  uint16_t Quickcapture;             //34  no = 54
+  uint16_t DefaultMode;              //35  no = 89
+  uint16_t AutoOff;                  //36  no = 59
+  uint16_t Screensaver;              //37  no = 51
+  uint16_t Brightness;               //38  no = 88
+  uint16_t AutoRotation;             //39  no = 52
+  uint16_t Gps;                      //40  no = 83
+  uint16_t Language;                 //41  no = 84
+  uint16_t VideoFormat;              //42  no = 57
 } tMavCameraParameters_GoProHero5;
 tMavCameraParameters_GoProHero5 _mavcameraparams_goprohero5;
 
@@ -169,50 +170,50 @@ const uint16_t GoProHero5Setting_u16[MAVCAMERA_PARAMETER_ZAHL_GOPROHERO5] = {
 
 typedef struct {
   uint16_t cam_mode;
-  uint16_t VideoAspectRatio;      // 108
-  uint16_t VideoResolution;       // 2
-  uint16_t VideoFps;              // 3
-  uint16_t VideoFov;              // 4
-  uint16_t VideoStabilization;    // 78
-  uint16_t VideoLowLight;         // 8
-  uint16_t VideoShortClip;        // 107
-  uint16_t VideoProtune;          // 10
-  uint16_t VideoShutter;          // 73
-  uint16_t VideoEvComp;           // 15
-  uint16_t VideoIsoMin;           // 102
-  uint16_t VideoIsoMax;           // 13
-  uint16_t VideoWhiteBalance;     // 11
-  uint16_t VideoSharpness;        // 14
-  uint16_t VideoColor;            // 12
-  uint16_t VideoRawAudio;         // 81
-  uint16_t VideoMics;             // 80
-  uint16_t PhotoFov;              // 17
-  uint16_t PhotoSuperphoto;       // 109
-  uint16_t PhotoRaw;              // 82
-  uint16_t PhotoTimer;            // 105
-  uint16_t PhotoProtune;          // 21
-  uint16_t PhotoShutter;          // 97
-  uint16_t PhotoEvComp;           // 26
-  uint16_t PhotoIsoMin;           // 75
-  uint16_t PhotoIsoMax;           // 24
-  uint16_t PhotoWhiteBalance;     // 22
-  uint16_t PhotoSharpness;        // 25
-  uint16_t PhotoColor;            // 23
-  uint16_t VoiceControl;          // 86
-  uint16_t WakeOnVoice;           // 104
-  uint16_t VoiceControlLanguage;  // 85
-  uint16_t BeepVolume;            // 87
-  uint16_t Leds;                  // 91
-  uint16_t QuickCapture;          // 54
-  uint16_t DefaultMode;           // 89
-  uint16_t AutoPowerOff;          // 59
-  uint16_t LandscapeLock;         // 112
-  uint16_t ScreenSaver;           // 51
-  uint16_t Brigthness;            // 88
-  uint16_t Gps;                   // 83
-  uint16_t Language;              // 84
-  uint16_t VideoFormat;           // 57
-  uint16_t VideoCompression;      // 106
+  uint16_t VideoAspectRatio;      //1   no = 108
+  uint16_t VideoResolution;       //2   no = 2
+  uint16_t VideoFps;              //3   no = 3
+  uint16_t VideoFov;              //4   no = 4
+  uint16_t VideoStabilization;    //5   no = 78
+  uint16_t VideoLowLight;         //6   no = 8
+  uint16_t VideoShortClip;        //7   no = 107
+  uint16_t VideoProtune;          //8   no = 10
+  uint16_t VideoShutter;          //9   no = 73
+  uint16_t VideoEvComp;           //10  no = 15
+  uint16_t VideoIsoMin;           //11  no = 102
+  uint16_t VideoIsoMax;           //12  no = 13
+  uint16_t VideoWhiteBalance;     //13  no = 11
+  uint16_t VideoSharpness;        //14  no = 14
+  uint16_t VideoColor;            //15  no = 12
+  uint16_t VideoRawAudio;         //16  no = 81
+  uint16_t VideoMics;             //17  no = 80
+  uint16_t PhotoFov;              //18  no = 17
+  uint16_t PhotoSuperphoto;       //19  no = 109
+  uint16_t PhotoRaw;              //20  no = 82
+  uint16_t PhotoTimer;            //21  no = 105
+  uint16_t PhotoProtune;          //22  no = 21
+  uint16_t PhotoShutter;          //23  no = 97
+  uint16_t PhotoEvComp;           //24  no = 26
+  uint16_t PhotoIsoMin;           //25  no = 75
+  uint16_t PhotoIsoMax;           //26  no = 24
+  uint16_t PhotoWhiteBalance;     //27  no = 22
+  uint16_t PhotoSharpness;        //28  no = 25
+  uint16_t PhotoColor;            //29  no = 23
+  uint16_t VoiceControl;          //30  no = 86
+  uint16_t WakeOnVoice;           //31  no = 104
+  uint16_t VoiceControlLanguage;  //32  no = 85
+  uint16_t BeepVolume;            //33  no = 87
+  uint16_t Leds;                  //34  no = 91
+  uint16_t QuickCapture;          //35  no = 54
+  uint16_t DefaultMode;           //36  no = 89
+  uint16_t AutoPowerOff;          //37  no = 59
+  uint16_t LandscapeLock;         //38  no = 112
+  uint16_t ScreenSaver;           //39  no = 51
+  uint16_t Brigthness;            //40  no = 88
+  uint16_t Gps;                   //41  no = 83
+  uint16_t Language;              //42  no = 84
+  uint16_t VideoFormat;           //43  no = 57
+  uint16_t VideoCompression;      //44  no = 106
 } tMavCameraParameters_GoProHero7;
 tMavCameraParameters_GoProHero7 _mavcameraparams_goprohero7;
 
@@ -476,11 +477,19 @@ MAV_PUTS(utoBCD_s(_gopro.response_value_u32));MAV_PUTC('\n');)
 // GOPRO user calls
 //-------------------------------------------------------
 
+void _goprohero_indexerror(void)
+{
+  _gopro.buf[0] = 'i'; //index error
+  _gopro.buf_len = 1;
+  _gopro.response_char = _gopro.buf[0];
+  _gopro.buf[_gopro.buf_len] = '\0'; //so that also str functions can be used
+}
+
+
 void goprohero_getsetting_byindex(uint16_t gpmodel, uint16_t index)
 {
   if( (index < 1) || (index >= GoProHeroParameterZahl[gpmodel]) ){
-    _gopro.buf[0] = 'i'; //index error
-    _gopro.buf_len = 1;
+    _goprohero_indexerror();
     _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
     return;
   }
@@ -505,8 +514,7 @@ GOPRO_DBG(MAV_PUTS("  gpGs:");MAV_PUTS(s);)
 void goprohero_setsetting_byindex(uint16_t gpmodel, uint16_t index, uint32_t value)
 {
   if( (index < 1) || (index >=  GoProHeroParameterZahl[gpmodel]) ){
-    _gopro.buf[0] = 'i'; //index error
-    _gopro.buf_len = 1;
+    _goprohero_indexerror();
     _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
     return;
   }
@@ -514,9 +522,9 @@ void goprohero_setsetting_byindex(uint16_t gpmodel, uint16_t index, uint32_t val
   //compose string
   char* s = (char*)_gopro.buf;
   strcpy(s, "set");
-  switch(gpmodel){
-  case GOPRO_MODEL_HERO5: strcat(s, GoProHero5Setting_str[index]); break;
-  case GOPRO_MODEL_HERO7: strcat(s, GoProHero7Setting_str[index]); break;
+  switch( gpmodel ){
+    case GOPRO_MODEL_HERO5: strcat(s, GoProHero5Setting_str[index]); break;
+    case GOPRO_MODEL_HERO7: strcat(s, GoProHero7Setting_str[index]); break;
   }
   strcat(s, "/");
   strcat(s, utoBCD_s(value));
@@ -533,8 +541,7 @@ GOPRO_DBG(MAV_PUTS("  gpSs:");MAV_PUTS(s);)
 void goprohero_setandchecksetting_byindex(uint16_t gpmodel, uint16_t index, uint32_t value)
 {
   if( (index < 1) || (index >=  GoProHeroParameterZahl[gpmodel]) ){
-    _gopro.buf[0] = 'i'; //index error
-    _gopro.buf_len = 1;
+    _goprohero_indexerror();
     _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
     return;
   }
@@ -542,9 +549,9 @@ void goprohero_setandchecksetting_byindex(uint16_t gpmodel, uint16_t index, uint
   //compose string
   char* s = (char*)_gopro.buf;
   strcpy(s, "setchk");
-  switch(gpmodel){
-  case GOPRO_MODEL_HERO5: strcat(s, GoProHero5Setting_str[index]); break;
-  case GOPRO_MODEL_HERO7: strcat(s, GoProHero7Setting_str[index]); break;
+  switch( gpmodel ){
+    case GOPRO_MODEL_HERO5: strcat(s, GoProHero5Setting_str[index]); break;
+    case GOPRO_MODEL_HERO7: strcat(s, GoProHero7Setting_str[index]); break;
   }
   strcat(s, "/");
   strcat(s, utoBCD_s(value));
@@ -561,8 +568,7 @@ GOPRO_DBG(MAV_PUTS("  gpSacs:");MAV_PUTS(s);)
 void goprohero_cmd(uint16_t cmd)
 {
   if( cmd >= GOPRO_CMD_MAX ){
-    _gopro.buf[0] = 'i'; //index error
-    _gopro.buf_len = 1;
+    _goprohero_indexerror();
     _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
     return;
   }
@@ -581,13 +587,51 @@ GOPRO_DBG(MAV_PUTS("  gpC:");MAV_PUTS(s);)
 }
 
 
+void goprohero_cmdandchecksettings(uint16_t cmd)
+{
+  if( cmd >= GOPRO_CMD_MAX ){
+    _goprohero_indexerror();
+    _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
+    return;
+  }
+
+  //compose string
+  char* s = (char*)_gopro.buf;
+  strcpy(s, "cmdchk");
+  strcat(s, GoProHeroCommand[cmd]);
+  strcat(s, "\n");
+
+GOPRO_DBG(MAV_PUTS("  gpCacs:");MAV_PUTS(s);)
+
+  //send string and trigger receive
+  gopro_hal_putbuf(_gopro.buf, strlen(s));
+  gopro_receive_trigger();
+}
+
+
 void goprohero_ping(void)
 {
   //compose string
   char* s = (char*)_gopro.buf;
   strcpy(s, "ping\n");
-  
+
 GOPRO_DBG(MAV_PUTS("  gpP:");MAV_PUTS(s);)
+
+  //send string and trigger receive
+  gopro_hal_putbuf(_gopro.buf, strlen(s));
+  gopro_receive_trigger();
+}
+
+
+void goprohero_setzoomlevel(uint16_t zoom_level)
+{
+  //compose string
+  char* s = (char*)_gopro.buf;
+  strcpy(s, "setzoom");
+  strcat(s, utoBCD_s(zoom_level));
+  strcat(s, "\n");
+
+GOPRO_DBG(MAV_PUTS("  gpSzl:");MAV_PUTS(s);)
 
   //send string and trigger receive
   gopro_hal_putbuf(_gopro.buf, strlen(s));
@@ -609,40 +653,11 @@ GOPRO_DBG(MAV_PUTS("  gpGb2:");MAV_PUTS(s);)
 }
 
 
-void goprohero_setzoomlevel(uint16_t zoom_level)
-{
-  //compose string
-  char* s = (char*)_gopro.buf;
-  strcpy(s, "setzoom");
-  strcat(s, utoBCD_s(zoom_level)); //strcat(s, GoProHeroCommand[GOPRO_CMD_ZOOMRANGE]);
-  strcat(s, "\n");
-  
-GOPRO_DBG(MAV_PUTS("  gpSzl:");MAV_PUTS(s);)
-
-  //send string and trigger receive
-  gopro_hal_putbuf(_gopro.buf, strlen(s));
-  gopro_receive_trigger();
-}
-
-
 void goprohero_parse_battery(uint16_t* battery_available, uint16_t* battery_status, uint16_t* battery_percentage, uint8_t* buf, uint16_t buf_len)
 {
   *battery_available = 0;
   *battery_status = 0;
   *battery_percentage = 0;
-/*  uint16_t i = 0;  //this doesn't work for some reason I didn't see, batterystatus is 0, and batterypercentage too large
-  for(; i<buf_len; i++){
-    if( buf[i] == ',' ) break;
-    if( (buf[i] >= '0') && (buf[i] <= '9') ) *battery_available = buf[i] - '0';
-  }
-  for(; i<buf_len; i++){
-    if( buf[i] == ',' ) break;
-    if( (buf[i] >= '0') && (buf[i] <= '9') ) *battery_status = buf[i] - '0';
-  }
-  for(; i<buf_len; i++){
-    if( (buf[i] >= '0') && (buf[i] <= '9') ) *battery_percentage = (*battery_percentage)*10 + (buf[i] - '0');
-  }
-*/
   uint16_t nr = 0;
   for( uint16_t i=0; i<buf_len; i++){
     if( buf[i] == ',' ){ nr++; continue; }

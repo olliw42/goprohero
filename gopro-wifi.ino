@@ -19,7 +19,7 @@
 #define GOPRO_SSID "GP........"      // Wifi name (SSID)videoon;
 #define GOPRO_PASS ".........."      // WiFi password
 
-#define VERSION_STR "(c) olliw.eu, v2019-12-26"
+#define VERSION_STR "(c) olliw.eu, v2019-12-27"
 
 
 //for debugging
@@ -179,12 +179,28 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
           int16_t res = gopro.sendCmd(GOPRO_CMD_SUBMODE_PHOTO_SINGLE);
           serialPrintClose(res);
       }
-      //not currently used by STorM32
+
+      if( cli_bufiscmdstr("cmdchk",str) ) {
+          int16_t res = gopro.sendCmdStr(String(str));
+          if( (res == true) || (res == -500) ){ //now check it
+            res = gopro.getStatus();
+            if( res == true ){ // disect status and check obtained value
+              // get modified settings
+              String modified_settings_str, settings_str;
+              int16_t rres = gopro.extractModifiedSettingsFromResponse("", modified_settings_str, settings_str);
+              if( (rres == true) && (modified_settings_str.length() > 0) ){ //there is a change, modified_settings_str is filled
+                Serial.print(modified_settings_str);
+              }
+            }
+          }
+          serialPrintClose(res);
+      }
+
       if( cli_bufiscmdstr("cmd",str) ) {
           int16_t res = gopro.sendCmdStr(String(str));
           serialPrintClose(res);
       }
-
+      
       if( cli_bufissetcmds16("setzoom",&value1) ) {
           String cmd_str = GOPRO_CMD_STR[GOPRO_CMD_ZOOMRANGE]; //"digital_zoom?range_pcnt="
           cmd_str += String(value1);
@@ -201,11 +217,11 @@ int16_t mode_last = -1; //this is to handle shutter/videoon/videooff in a hopefu
       // 'xx/xx,xx/xxo' : setting ok, reports all additionally modified settings, no/val is not in there
       if( cli_bufiscmdstr("setchk",str) ) {
           int16_t res = gopro.sendSettingStr(String(str)); //can return -500
-          if( (res == true) || (res == -500) ) { //now check it
+          if( (res == true) || (res == -500) ){ //now check it
             res = gopro.getStatus();
-            if( res == true ) { // disect status and check obtained value
+            if( res == true ){ // disect status and check obtained value
                 // split str into no
-                char no[32];
+                char no[32]; no[0] = '\0';
                 for(uint16_t i=0; i<strlen(str); i++) { no[i] = str[i]; if( no[i] == '/' ) { no[i] = '\0'; break; } }
                 // get modified settings
                 String modified_settings_str, settings_str;

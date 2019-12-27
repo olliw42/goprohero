@@ -148,7 +148,7 @@ void owGoPro::begin(void)
     WiFi.mode(WIFI_STA); //this is needed for me
 #endif    
 #if defined(ARDUINO_ARCH_ESP32)
-    WiFi.setTxPower(WIFI_POWER_MINUS_1dBm);
+    WiFi.setTxPower(WIFI_POWER_2dBm); //WiFi.setTxPower(WIFI_POWER_MINUS_1dBm);
 #endif    
     
     WiFi.begin(_ssid.c_str(), _password.c_str());
@@ -625,7 +625,7 @@ bool owGoPro::extractSettingValueFromResponse(const char* no, String& value)
 
 // extracts all modified seetings
 // returns xx/xx,yy/yy, etc., 
-// puts the setting with no in first place if there is one
+// puts the setting with no in first place, if there is one specified
 bool owGoPro::extractModifiedSettingsFromResponse(void)
 {
     extractCleanedSettingsFromResponse(_settings_last); 
@@ -636,14 +636,14 @@ bool owGoPro::extractModifiedSettingsFromResponse(const char* no, String& modifi
 {
     modified_settings = "";
   
-    extractCleanedSettingsFromResponse(settings_current); 
+    extractCleanedSettingsFromResponse(settings_current); //fill settings_current with settings from available _response string
 
     if( _settings_last.length() == 0 ){ //no last yet set
       _settings_last = settings_current;
       return false;
     }
 
-    if( _settings_last != settings_current ){
+    if( _settings_last != settings_current ){ //a change is detected
       String _str; _str.reserve(32);
       String _set; _set.reserve(512);
       
@@ -657,12 +657,12 @@ bool owGoPro::extractModifiedSettingsFromResponse(const char* no, String& modifi
         String s2 = _settings_last.substring(s2pos_last, s2pos);
 
         if( s != s2 ){
-          // get no in s
-          char sno[32]; 
+          // get no. in s
+          char sno[32]; sno[0] = '\0'; 
           for(uint16_t i=0; i<s.length(); i++) { sno[i] = s.charAt(i); if( sno[i] == '/' ){ sno[i] = '\0'; break; } }
           // compare with no
           if( !strcmp(no,sno) ) {
-            _str = s; 
+            _str = s; //it's the specified no, so remember it for later
           }else{
             _set += s; _set += ","; 
           }
@@ -674,10 +674,11 @@ bool owGoPro::extractModifiedSettingsFromResponse(const char* no, String& modifi
         s2pos = _settings_last.indexOf(",", s2pos_last);
       }
 
-      if( _str.length() != 0 ){ 
+      if( _str.length() != 0 ){ //a no was specified, so put it in first place
         modified_settings = _str;
         modified_settings += ",";
       }
+      
       modified_settings += _set;
     }
     

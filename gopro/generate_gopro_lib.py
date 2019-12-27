@@ -367,6 +367,7 @@ def generateSTorM32LibForCamera(camera, version):
 
     # $$GOPRO_PARAMETERS$$  
     code_h = ''
+    index = 1
     for setting, options in settings_dict.items():
         setting_name = options['name'].title().replace(' ','')
         setting_mavlink_name = make_mavlink_name(options['name'])
@@ -377,7 +378,8 @@ def generateSTorM32LibForCamera(camera, version):
             type = 'uint32_t'
         else: 
             type = 'uint16_t'
-        code_h += '  '+type+' '+(setting_name+';').ljust(setting_name_maxlen+1)+'  // '+str(options['nr'])+'\n' #  // '+setting_mavlink_name+'\n'
+        code_h += '  '+type+' '+(setting_name+';').ljust(setting_name_maxlen+1)+'  //'+str(index).ljust(2)+'  no = '+str(options['nr'])+'\n' #  // '+setting_mavlink_name+'\n'
+        index += 1        
 
     code_template_h = code_template_h.replace('$$$GOPRO_PARAMETERS$$$',code_h[:-1])
 

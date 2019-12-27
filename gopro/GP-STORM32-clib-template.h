@@ -180,11 +180,19 @@ MAV_PUTS(utoBCD_s(_gopro.response_value_u32));MAV_PUTC('\n');)
 // GOPRO user calls
 //-------------------------------------------------------
 
+void _goprohero_indexerror(void)
+{
+  _gopro.buf[0] = 'i'; //index error
+  _gopro.buf_len = 1;
+  _gopro.response_char = _gopro.buf[0];
+  _gopro.buf[_gopro.buf_len] = '\0'; //so that also str functions can be used
+}
+
+
 void goprohero_getsetting_byindex(uint16_t gpmodel, uint16_t index)
 {
   if( (index < 1) || (index >= GoProHeroParameterZahl[gpmodel]) ){
-    _gopro.buf[0] = 'i'; //index error
-    _gopro.buf_len = 1;
+    _goprohero_indexerror();
     _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
     return;
   }
@@ -209,8 +217,7 @@ GOPRO_DBG(MAV_PUTS("  gpGs:");MAV_PUTS(s);)
 void goprohero_setsetting_byindex(uint16_t gpmodel, uint16_t index, uint32_t value)
 {
   if( (index < 1) || (index >=  GoProHeroParameterZahl[gpmodel]) ){
-    _gopro.buf[0] = 'i'; //index error
-    _gopro.buf_len = 1;
+    _goprohero_indexerror();
     _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
     return;
   }
@@ -218,9 +225,9 @@ void goprohero_setsetting_byindex(uint16_t gpmodel, uint16_t index, uint32_t val
   //compose string
   char* s = (char*)_gopro.buf;
   strcpy(s, "set");
-  switch(gpmodel){
-  case GOPRO_MODEL_HERO5: strcat(s, GoProHero5Setting_str[index]); break;
-  case GOPRO_MODEL_HERO7: strcat(s, GoProHero7Setting_str[index]); break;
+  switch( gpmodel ){
+    case GOPRO_MODEL_HERO5: strcat(s, GoProHero5Setting_str[index]); break;
+    case GOPRO_MODEL_HERO7: strcat(s, GoProHero7Setting_str[index]); break;
   }
   strcat(s, "/");
   strcat(s, utoBCD_s(value));
@@ -237,8 +244,7 @@ GOPRO_DBG(MAV_PUTS("  gpSs:");MAV_PUTS(s);)
 void goprohero_setandchecksetting_byindex(uint16_t gpmodel, uint16_t index, uint32_t value)
 {
   if( (index < 1) || (index >=  GoProHeroParameterZahl[gpmodel]) ){
-    _gopro.buf[0] = 'i'; //index error
-    _gopro.buf_len = 1;
+    _goprohero_indexerror();
     _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
     return;
   }
@@ -246,9 +252,9 @@ void goprohero_setandchecksetting_byindex(uint16_t gpmodel, uint16_t index, uint
   //compose string
   char* s = (char*)_gopro.buf;
   strcpy(s, "setchk");
-  switch(gpmodel){
-  case GOPRO_MODEL_HERO5: strcat(s, GoProHero5Setting_str[index]); break;
-  case GOPRO_MODEL_HERO7: strcat(s, GoProHero7Setting_str[index]); break;
+  switch( gpmodel ){
+    case GOPRO_MODEL_HERO5: strcat(s, GoProHero5Setting_str[index]); break;
+    case GOPRO_MODEL_HERO7: strcat(s, GoProHero7Setting_str[index]); break;
   }
   strcat(s, "/");
   strcat(s, utoBCD_s(value));
@@ -265,8 +271,7 @@ GOPRO_DBG(MAV_PUTS("  gpSacs:");MAV_PUTS(s);)
 void goprohero_cmd(uint16_t cmd)
 {
   if( cmd >= GOPRO_CMD_MAX ){
-    _gopro.buf[0] = 'i'; //index error
-    _gopro.buf_len = 1;
+    _goprohero_indexerror();
     _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
     return;
   }
@@ -285,13 +290,51 @@ GOPRO_DBG(MAV_PUTS("  gpC:");MAV_PUTS(s);)
 }
 
 
+void goprohero_cmdandchecksettings(uint16_t cmd)
+{
+  if( cmd >= GOPRO_CMD_MAX ){
+    _goprohero_indexerror();
+    _gopro.state = GOPROSTATE_RECEIVE_COMPLETED;
+    return;
+  }
+
+  //compose string
+  char* s = (char*)_gopro.buf;
+  strcpy(s, "cmdchk");
+  strcat(s, GoProHeroCommand[cmd]);
+  strcat(s, "\n");
+
+GOPRO_DBG(MAV_PUTS("  gpCacs:");MAV_PUTS(s);)
+
+  //send string and trigger receive
+  gopro_hal_putbuf(_gopro.buf, strlen(s));
+  gopro_receive_trigger();
+}
+
+
 void goprohero_ping(void)
 {
   //compose string
   char* s = (char*)_gopro.buf;
   strcpy(s, "ping\n");
-  
+
 GOPRO_DBG(MAV_PUTS("  gpP:");MAV_PUTS(s);)
+
+  //send string and trigger receive
+  gopro_hal_putbuf(_gopro.buf, strlen(s));
+  gopro_receive_trigger();
+}
+
+
+void goprohero_setzoomlevel(uint16_t zoom_level)
+{
+  //compose string
+  char* s = (char*)_gopro.buf;
+  strcpy(s, "setzoom");
+  strcat(s, utoBCD_s(zoom_level));
+  strcat(s, "\n");
+
+GOPRO_DBG(MAV_PUTS("  gpSzl:");MAV_PUTS(s);)
 
   //send string and trigger receive
   gopro_hal_putbuf(_gopro.buf, strlen(s));
@@ -313,40 +356,11 @@ GOPRO_DBG(MAV_PUTS("  gpGb2:");MAV_PUTS(s);)
 }
 
 
-void goprohero_setzoomlevel(uint16_t zoom_level)
-{
-  //compose string
-  char* s = (char*)_gopro.buf;
-  strcpy(s, "setzoom");
-  strcat(s, utoBCD_s(zoom_level)); //strcat(s, GoProHeroCommand[GOPRO_CMD_ZOOMRANGE]);
-  strcat(s, "\n");
-  
-GOPRO_DBG(MAV_PUTS("  gpSzl:");MAV_PUTS(s);)
-
-  //send string and trigger receive
-  gopro_hal_putbuf(_gopro.buf, strlen(s));
-  gopro_receive_trigger();
-}
-
-
 void goprohero_parse_battery(uint16_t* battery_available, uint16_t* battery_status, uint16_t* battery_percentage, uint8_t* buf, uint16_t buf_len)
 {
   *battery_available = 0;
   *battery_status = 0;
   *battery_percentage = 0;
-/*  uint16_t i = 0;  //this doesn't work for some reason I didn't see, batterystatus is 0, and batterypercentage too large
-  for(; i<buf_len; i++){
-    if( buf[i] == ',' ) break;
-    if( (buf[i] >= '0') && (buf[i] <= '9') ) *battery_available = buf[i] - '0';
-  }
-  for(; i<buf_len; i++){
-    if( buf[i] == ',' ) break;
-    if( (buf[i] >= '0') && (buf[i] <= '9') ) *battery_status = buf[i] - '0';
-  }
-  for(; i<buf_len; i++){
-    if( (buf[i] >= '0') && (buf[i] <= '9') ) *battery_percentage = (*battery_percentage)*10 + (buf[i] - '0');
-  }
-*/
   uint16_t nr = 0;
   for( uint16_t i=0; i<buf_len; i++){
     if( buf[i] == ',' ){ nr++; continue; }
